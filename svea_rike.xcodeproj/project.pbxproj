@@ -11,6 +11,21 @@
 		DF2E73C9256C5DDF00EBE05D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73C8256C5DDF00EBE05D /* ContentView.swift */; };
 		DF2E73CB256C5DE100EBE05D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E73CA256C5DE100EBE05D /* Assets.xcassets */; };
 		DF2E73CE256C5DE100EBE05D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E73CD256C5DE100EBE05D /* Preview Assets.xcassets */; };
+		DF2E73D8256C5E2700EBE05D /* Era.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73D7256C5E2700EBE05D /* Era.swift */; };
+		DF2E73DC256C5E7400EBE05D /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73DB256C5E7400EBE05D /* DiceRoll.swift */; };
+		DF2E73DF256C5EC300EBE05D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73DE256C5EC300EBE05D /* Player.swift */; };
+		DF2E73E2256C5EEF00EBE05D /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73E1256C5EEF00EBE05D /* EventCard.swift */; };
+		DF2E73E5256C5F5700EBE05D /* Regent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73E4256C5F5700EBE05D /* Regent.swift */; };
+		DF2E73E8256C606500EBE05D /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73E7256C606500EBE05D /* Province.swift */; };
+		DF2E73EB256C627600EBE05D /* Specialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73EA256C627600EBE05D /* Specialization.swift */; };
+		DF2E73EE256C62BE00EBE05D /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73ED256C62BE00EBE05D /* GameEngine.swift */; };
+		DF2E73F3256C630900EBE05D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73F2256C630900EBE05D /* Game.swift */; };
+		DF2E73F7256C643B00EBE05D /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73F6256C643B00EBE05D /* Turn.swift */; };
+		DF2E73FA256C64F700EBE05D /* RegentSpecialCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73F9256C64F700EBE05D /* RegentSpecialCondition.swift */; };
+		DF2E73FD256C655900EBE05D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73FC256C655900EBE05D /* Country.swift */; };
+		DF2E7400256C67DA00EBE05D /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73FF256C67DA00EBE05D /* Family.swift */; };
+		DF4B77BB256C72F90087150F /* PlayerTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BA256C72F90087150F /* PlayerTurn.swift */; };
+		DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BD256C7C100087150F /* HistoryCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +35,22 @@
 		DF2E73CA256C5DE100EBE05D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF2E73CD256C5DE100EBE05D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF2E73CF256C5DE100EBE05D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF2E73D7256C5E2700EBE05D /* Era.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Era.swift; sourceTree = "<group>"; };
+		DF2E73DB256C5E7400EBE05D /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
+		DF2E73DE256C5EC300EBE05D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DF2E73E1256C5EEF00EBE05D /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
+		DF2E73E4256C5F5700EBE05D /* Regent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regent.swift; sourceTree = "<group>"; };
+		DF2E73E7256C606500EBE05D /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
+		DF2E73EA256C627600EBE05D /* Specialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialization.swift; sourceTree = "<group>"; };
+		DF2E73ED256C62BE00EBE05D /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		DF2E73F2256C630900EBE05D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		DF2E73F6256C643B00EBE05D /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		DF2E73F9256C64F700EBE05D /* RegentSpecialCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegentSpecialCondition.swift; sourceTree = "<group>"; };
+		DF2E73FC256C655900EBE05D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		DF2E73FF256C67DA00EBE05D /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
+		DF4B77B6256C70550087150F /* svea_rike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = svea_rike.entitlements; sourceTree = "<group>"; };
+		DF4B77BA256C72F90087150F /* PlayerTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurn.swift; sourceTree = "<group>"; };
+		DF4B77BD256C7C100087150F /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +83,8 @@
 		DF2E73C5256C5DDF00EBE05D /* svea_rike */ = {
 			isa = PBXGroup;
 			children = (
+				DF4B77B6256C70550087150F /* svea_rike.entitlements */,
+				DF2E73D6256C5DF400EBE05D /* game_logic */,
 				DF2E73C6256C5DDF00EBE05D /* svea_rikeApp.swift */,
 				DF2E73C8256C5DDF00EBE05D /* ContentView.swift */,
 				DF2E73CA256C5DE100EBE05D /* Assets.xcassets */,
@@ -67,6 +100,36 @@
 				DF2E73CD256C5DE100EBE05D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DF2E73D6256C5DF400EBE05D /* game_logic */ = {
+			isa = PBXGroup;
+			children = (
+				DF2E73ED256C62BE00EBE05D /* GameEngine.swift */,
+				DF2E73F0256C62CA00EBE05D /* models */,
+			);
+			path = game_logic;
+			sourceTree = "<group>";
+		};
+		DF2E73F0256C62CA00EBE05D /* models */ = {
+			isa = PBXGroup;
+			children = (
+				DF2E73F2256C630900EBE05D /* Game.swift */,
+				DF2E73D7256C5E2700EBE05D /* Era.swift */,
+				DF2E73DB256C5E7400EBE05D /* DiceRoll.swift */,
+				DF2E73DE256C5EC300EBE05D /* Player.swift */,
+				DF2E73E1256C5EEF00EBE05D /* EventCard.swift */,
+				DF2E73E4256C5F5700EBE05D /* Regent.swift */,
+				DF2E73E7256C606500EBE05D /* Province.swift */,
+				DF2E73EA256C627600EBE05D /* Specialization.swift */,
+				DF2E73F6256C643B00EBE05D /* Turn.swift */,
+				DF2E73F9256C64F700EBE05D /* RegentSpecialCondition.swift */,
+				DF2E73FC256C655900EBE05D /* Country.swift */,
+				DF2E73FF256C67DA00EBE05D /* Family.swift */,
+				DF4B77BA256C72F90087150F /* PlayerTurn.swift */,
+				DF4B77BD256C7C100087150F /* HistoryCard.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +201,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2E73FD256C655900EBE05D /* Country.swift in Sources */,
+				DF4B77BB256C72F90087150F /* PlayerTurn.swift in Sources */,
+				DF2E73D8256C5E2700EBE05D /* Era.swift in Sources */,
+				DF2E73FA256C64F700EBE05D /* RegentSpecialCondition.swift in Sources */,
+				DF2E73E5256C5F5700EBE05D /* Regent.swift in Sources */,
+				DF2E73EB256C627600EBE05D /* Specialization.swift in Sources */,
+				DF2E7400256C67DA00EBE05D /* Family.swift in Sources */,
 				DF2E73C9256C5DDF00EBE05D /* ContentView.swift in Sources */,
+				DF2E73DC256C5E7400EBE05D /* DiceRoll.swift in Sources */,
+				DF2E73EE256C62BE00EBE05D /* GameEngine.swift in Sources */,
+				DF2E73F3256C630900EBE05D /* Game.swift in Sources */,
+				DF2E73DF256C5EC300EBE05D /* Player.swift in Sources */,
+				DF2E73E2256C5EEF00EBE05D /* EventCard.swift in Sources */,
+				DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */,
 				DF2E73C7256C5DDF00EBE05D /* svea_rikeApp.swift in Sources */,
+				DF2E73F7256C643B00EBE05D /* Turn.swift in Sources */,
+				DF2E73E8256C606500EBE05D /* Province.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,20 +345,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = svea_rike/svea_rike.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"svea_rike/Preview Content\"";
 				DEVELOPMENT_TEAM = N856DL6EH7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = svea_rike/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "se.appmeat.svea-rike";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -289,20 +371,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = svea_rike/svea_rike.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"svea_rike/Preview Content\"";
 				DEVELOPMENT_TEAM = N856DL6EH7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = svea_rike/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "se.appmeat.svea-rike";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
