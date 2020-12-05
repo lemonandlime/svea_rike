@@ -24,6 +24,7 @@
 		DF2E73FA256C64F700EBE05D /* RegentSpecialCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73F9256C64F700EBE05D /* RegentSpecialCondition.swift */; };
 		DF2E73FD256C655900EBE05D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73FC256C655900EBE05D /* Country.swift */; };
 		DF2E7400256C67DA00EBE05D /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73FF256C67DA00EBE05D /* Family.swift */; };
+		DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34620D257C3B82005814AC /* PlayerTurnView.swift */; };
 		DF4B77BB256C72F90087150F /* PlayerTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BA256C72F90087150F /* PlayerTurn.swift */; };
 		DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BD256C7C100087150F /* HistoryCard.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		DF2E73F9256C64F700EBE05D /* RegentSpecialCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegentSpecialCondition.swift; sourceTree = "<group>"; };
 		DF2E73FC256C655900EBE05D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DF2E73FF256C67DA00EBE05D /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
+		DF34620D257C3B82005814AC /* PlayerTurnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurnView.swift; sourceTree = "<group>"; };
 		DF4B77B6256C70550087150F /* svea_rike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = svea_rike.entitlements; sourceTree = "<group>"; };
 		DF4B77BA256C72F90087150F /* PlayerTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurn.swift; sourceTree = "<group>"; };
 		DF4B77BD256C7C100087150F /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 				DF4B77B6256C70550087150F /* svea_rike.entitlements */,
 				DF2E73D6256C5DF400EBE05D /* game_logic */,
 				DF2E73C6256C5DDF00EBE05D /* svea_rikeApp.swift */,
-				DF2E73C8256C5DDF00EBE05D /* ContentView.swift */,
+				DF346210257C3B88005814AC /* scenes */,
 				DF2E73CA256C5DE100EBE05D /* Assets.xcassets */,
 				DF2E73CF256C5DE100EBE05D /* Info.plist */,
 				DF2E73CC256C5DE100EBE05D /* Preview Content */,
@@ -130,6 +132,15 @@
 				DF4B77BD256C7C100087150F /* HistoryCard.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		DF346210257C3B88005814AC /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DF2E73C8256C5DDF00EBE05D /* ContentView.swift */,
+				DF34620D257C3B82005814AC /* PlayerTurnView.swift */,
+			);
+			path = scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 				DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */,
 				DF2E73C7256C5DDF00EBE05D /* svea_rikeApp.swift in Sources */,
 				DF2E73F7256C643B00EBE05D /* Turn.swift in Sources */,
+				DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */,
 				DF2E73E8256C606500EBE05D /* Province.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

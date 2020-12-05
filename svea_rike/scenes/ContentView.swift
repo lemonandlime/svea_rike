@@ -14,17 +14,16 @@ class ViewModel: ObservableObject {
     @ObservedObject var game: Game
     
     @Published var currentPlayerTurn: PlayerTurn
-    @Published var currentPlayerTurnStage: PlayerTurnStage = .drawingCard
     
     init(game: Game) {
         self.game = game
         
         self.currentPlayerTurn = game.turn.currentPlayerTurn
         
-        currentPlayerTurn.$stage
+        game.turn.$currentPlayerTurn
             .receive(on: RunLoop.main)
             .removeDuplicates()
-            .assign(to: \.currentPlayerTurnStage, on: self)
+            .assign(to: \.currentPlayerTurn, on: self)
             .store(in: &cancellable)
     }
     
@@ -49,44 +48,8 @@ struct ContentView: View {
             Text(vm.game.turn.specialCondition.display)
 
             Text(vm.game.turn.currentPlayer.name)
-            Text(vm.currentPlayerTurnStage.display)
-            Spacer()
             
-            if vm.currentPlayerTurnStage == .drawingCard {
-                Button("Dra Kort") {
-                    vm.currentPlayerTurn.eventCard = .krigetsVindar
-                }
-            }
-            
-            if vm.currentPlayerTurnStage == .selectingSpecialization {
-                HStack {
-                    Button("KULTUR & VETENSKAP") {
-                        vm.currentPlayerTurn.specialization = .scienceAndCulture
-                    }
-                    
-                    Button("JORDBRUK") {
-                        vm.currentPlayerTurn.specialization = .farming
-                    }
-                    
-                    Button("HANDEL") {
-                        vm.currentPlayerTurn.specialization = .trade
-                    }
-                }
-            }
-            
-            if vm.currentPlayerTurn.specialization == .trade {
-                TradeRouteView(currentPlayerTurn: vm.currentPlayerTurn)
-            }
-            
-            if vm.currentPlayerTurn.specialization == .farming {
-                FarmRouteView(currentPlayerTurn: vm.currentPlayerTurn)
-            }
-            
-            if vm.currentPlayerTurnStage == .confirmingFinished {
-                Button("Jag är klar") {
-                    vm.currentPlayerTurn.hasfinished = true
-                }
-            }
+            PlayerTurnView(turn: vm.currentPlayerTurn)
             
             
         }.padding()
