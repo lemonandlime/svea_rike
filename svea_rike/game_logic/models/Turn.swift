@@ -16,7 +16,8 @@ class Turn: ObservableObject {
     
     let specialCondition: RegentSpecialCondition
     
-    @ObservedObject var currentPlayerTurn: PlayerTurn
+    @Published var currentPlayerTurn: PlayerTurn
+    
     var currentPlayer: Player
     
     init(players: [Player], condition: RegentSpecialCondition) {
@@ -30,5 +31,9 @@ class Turn: ObservableObject {
         self.playerQueue = playerQueue
         self.specialCondition = condition
 
+    }
+    
+    deinit {
+        cancellable.forEach { $0.cancel() }
     }
 }

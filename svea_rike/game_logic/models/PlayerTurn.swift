@@ -8,7 +8,25 @@
 import Foundation
 import Combine
 
-class PlayerTurn: ObservableObject {
+class PlayerTurn: ObservableObject, Equatable, Hashable {
+    static func == (lhs: PlayerTurn, rhs: PlayerTurn) -> Bool {
+        lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(eventCard)
+        hasher.combine(specialization)
+        hasher.combine(incomeSource)
+        hasher.combine(purchasedHistoryCard)
+        hasher.combine(purchasedProvince)
+        hasher.combine(skippedProvincePurchase)
+        hasher.combine(collectedIncome)
+        hasher.combine(paidTroopSupport)
+        hasher.combine(addedMerchant)
+        hasher.combine(hasfinished)
+        hasher.combine(stage)
+    }
+    
     
     var cancellable = Set<AnyCancellable>()
     
@@ -28,70 +46,84 @@ class PlayerTurn: ObservableObject {
     
     @Published var paidTroopSupport: Int? = nil
     
-    @Published var addedMerchant: Bool = false
+    @Published var addedMerchant: Country? = nil
     
     @Published var hasfinished = false
     
-    @Published var stage: PlayerTurnStage = .drawingCard
+    @Published var stage: PlayerTurnStage = .drawingCard {
+        didSet {
+            print(stage.display)
+        }
+    }
     
     init() {
         
         $eventCard
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $specialization
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $incomeSource
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $purchasedHistoryCard
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $purchasedProvince
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $skippedProvincePurchase
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $collectedIncome
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $paidTroopSupport
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $addedMerchant
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
         
         $hasfinished
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
@@ -114,7 +146,7 @@ class PlayerTurn: ObservableObject {
         
         if specialization == .trade {
             
-            if !addedMerchant {
+            if addedMerchant == nil {
                 return .placingMerchant
             }
             

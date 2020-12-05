@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct HistoryCard {
+struct HistoryCard: Equatable, Hashable {
     
 }
+

@@ -13,7 +13,7 @@ class Game: ObservableObject {
     @Published var players: [Player]
     @Published var era: Era
     @Published var regent: Regent
-    @ObservedObject var turn: Turn
+    @Published var turn: Turn
         
     init(players: [Player], era: Era, regent: Regent, turn: Turn) {
         self.players = players
