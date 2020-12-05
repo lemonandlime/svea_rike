@@ -51,6 +51,10 @@ struct PlayerTurnView: View {
                 FarmRouteView()
             }
             
+            if turn.specialization == .scienceAndCulture {
+                ScienceAndCultureRouteView()
+            }
+            
             if turn.stage == .confirmingFinished {
                 Button("Jag är klar") {
                     turn.hasfinished = true
@@ -59,30 +63,87 @@ struct PlayerTurnView: View {
         }.environmentObject(turn)
     }
     
-    struct FarmRouteView: View {
-        @EnvironmentObject var currentPlayerTurn: PlayerTurn
+    struct ScienceAndCultureRouteView: View {
+        
+        @EnvironmentObject var turn: PlayerTurn
         
         var body: some View {
             Group {
-                if currentPlayerTurn.stage == .placingMerchant {
+                
+                if turn.stage == .selectingIncomeSource {
                     HStack {
-                        ForEach(Country.all, id: \.self) { country in
-                            Button(country.display) {
-                                currentPlayerTurn.addedMerchant = country
+                        
+                        Button("Jordbruk") {
+                            turn.incomeSource = .farming
+                        }
+                        
+                        Button("Handel") {
+                            turn.incomeSource = .trade
+                        }
+                    }
+                    
+                }
+                                
+                if turn.stage == .collectingTradeIncome {
+                    Button("Inkassera inkomster") {
+                        turn.collectedIncome = 5
+                    }
+                }
+                
+                if turn.stage == .collectionFarmingIncome {
+                    Button("Inkassera inkomster") {
+                        turn.collectedIncome = 5
+                    }
+                }
+                
+                if turn.stage == .payingTroops {
+                    Button("Betala") {
+                        turn.paidTroopSupport = 3
+                    }
+                }
+                
+                if turn.stage == .purchasingHistoryCard {
+                    Button("Skippa köp") {
+                        turn.skippedHistoryCardPurchase = true
+                    }
+                }
+            }
+        }
+    }
+
+    
+    struct FarmRouteView: View {
+        
+        @EnvironmentObject var turn: PlayerTurn
+        
+        var body: some View {
+            Group {
+                
+                if turn.stage == .collectionFarmingIncome {
+                    Button("Inkassera inkomster") {
+                        turn.collectedIncome = 10
+                    }
+                }
+                
+                if turn.stage == .purchasingProvince {
+                    HStack {
+                        ForEach(Province.all, id: \.self) { province in
+                            Button(province.display) {
+                                turn.purchasedProvince = province
                             }
                         }
                     }
                 }
                 
-                if currentPlayerTurn.stage == .collectingTradeIncome {
+                if turn.stage == .collectingTradeIncome {
                     Button("Inkassera inkomster") {
-                        currentPlayerTurn.collectedIncome = 5
+                        turn.collectedIncome = 5
                     }
                 }
                 
-                if currentPlayerTurn.stage == .payingTroops {
+                if turn.stage == .payingTroops {
                     Button("Betala") {
-                        currentPlayerTurn.paidTroopSupport = 3
+                        turn.paidTroopSupport = 3
                     }
                 }
             }
@@ -90,29 +151,29 @@ struct PlayerTurnView: View {
     }
     
     struct TradeRouteView: View {
-        @EnvironmentObject var currentPlayerTurn: PlayerTurn
+        @EnvironmentObject var turn: PlayerTurn
         
         var body: some View {
             Group {
-                if currentPlayerTurn.stage == .placingMerchant {
+                if turn.stage == .placingMerchant {
                     HStack {
                         ForEach(Country.all, id: \.self) { country in
                             Button(country.display) {
-                                currentPlayerTurn.addedMerchant = country
+                                turn.addedMerchant = country
                             }
                         }
                     }
                 }
                 
-                if currentPlayerTurn.stage == .collectingTradeIncome {
+                if turn.stage == .collectingTradeIncome {
                     Button("Inkassera inkomster") {
-                        currentPlayerTurn.collectedIncome = 5
+                        turn.collectedIncome = 5
                     }
                 }
                 
-                if currentPlayerTurn.stage == .payingTroops {
+                if turn.stage == .payingTroops {
                     Button("Betala") {
-                        currentPlayerTurn.paidTroopSupport = 3
+                        turn.paidTroopSupport = 3
                     }
                 }
             }

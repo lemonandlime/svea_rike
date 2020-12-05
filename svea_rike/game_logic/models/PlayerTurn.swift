@@ -38,6 +38,8 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
     
     @Published var purchasedHistoryCard: HistoryCard? = nil
     
+    @Published var skippedHistoryCardPurchase = false
+    
     @Published var purchasedProvince: Province? = nil
     
     @Published var skippedProvincePurchase = false
@@ -80,6 +82,13 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
             .store(in: &cancellable)
         
         $purchasedHistoryCard
+            .receive(on: RunLoop.main)
+            .removeDuplicates()
+            .map(recalcalculateStage(_:))
+            .assign(to: \.stage, on: self)
+            .store(in: &cancellable)
+        
+        $skippedHistoryCardPurchase
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
@@ -186,7 +195,11 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
                 }
             }
             
-            if purchasedHistoryCard == nil {
+            guard let paidTroopSupport = paidTroopSupport else {
+                return .payingTroops
+            }
+            
+            if purchasedHistoryCard == nil, skippedHistoryCardPurchase == false {
                 return .purchasingHistoryCard
             }
             
