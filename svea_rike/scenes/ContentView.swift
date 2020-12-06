@@ -43,76 +43,17 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Regent \(vm.game.regent.display) (\(vm.game.era.display))")
-            Text(vm.game.turn.specialCondition.display)
-
-            Text(vm.game.turn.currentPlayer.name)
+        VStack(alignment: .leading, spacing: 15) {
+            
+            HStack {
+                Text("Regent \(vm.game.regent.display) (\(vm.game.era.display))")
+                Text(vm.game.turn.specialCondition.display)
+            }
+        
             
             PlayerTurnView(turn: vm.currentPlayerTurn)
             
-            
-        }.padding()
-    }
-    
-    struct FarmRouteView: View {
-        @ObservedObject var currentPlayerTurn: PlayerTurn
-        
-        var body: some View {
-            Group {
-                if currentPlayerTurn.stage == .placingMerchant {
-                    HStack {
-                        ForEach(Country.all, id: \.self) { country in
-                            Button(country.display) {
-                                currentPlayerTurn.addedMerchant = country
-                            }
-                        }
-                    }
-                }
-                
-                if currentPlayerTurn.stage == .collectingTradeIncome {
-                    Button("Inkassera inkomster") {
-                        currentPlayerTurn.collectedIncome = 5
-                    }
-                }
-                
-                if currentPlayerTurn.stage == .payingTroops {
-                    Button("Betala") {
-                        currentPlayerTurn.paidTroopSupport = 3
-                    }
-                }
-            }
-        }
-    }
-    
-    struct TradeRouteView: View {
-        @ObservedObject var currentPlayerTurn: PlayerTurn
-        
-        var body: some View {
-            Group {
-                if currentPlayerTurn.stage == .placingMerchant {
-                    HStack {
-                        ForEach(Country.all, id: \.self) { country in
-                            Button(country.display) {
-                                currentPlayerTurn.addedMerchant = country
-                            }
-                        }
-                    }
-                }
-                
-                if currentPlayerTurn.stage == .collectingTradeIncome {
-                    Button("Inkassera inkomster") {
-                        currentPlayerTurn.collectedIncome = 5
-                    }
-                }
-                
-                if currentPlayerTurn.stage == .payingTroops {
-                    Button("Betala") {
-                        currentPlayerTurn.paidTroopSupport = 3
-                    }
-                }
-            }
-        }
+        }.padding().frame(maxWidth: 400)
     }
 }
 

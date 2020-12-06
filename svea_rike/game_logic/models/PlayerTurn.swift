@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class PlayerTurn: ObservableObject, Equatable, Hashable {
     static func == (lhs: PlayerTurn, rhs: PlayerTurn) -> Bool {
@@ -29,6 +30,8 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
     
     
     var cancellable = Set<AnyCancellable>()
+    
+    @Published var player: Player
     
     @Published var eventCard: EventCard? = nil
     
@@ -58,7 +61,9 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
         }
     }
     
-    init() {
+    init(player: Player) {
+        
+        self.player = player
         
         $eventCard
             .receive(on: RunLoop.main)
@@ -84,6 +89,16 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
         $purchasedHistoryCard
             .receive(on: RunLoop.main)
             .removeDuplicates()
+            .compactMap { $0 }
+            .compactMap { historyCard in
+                guard historyCard.price <= player.money else {
+                    return nil
+                }
+                
+                player.historyCards.append(historyCard)
+                player.money -= historyCard.price
+                return true
+            }
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
@@ -98,6 +113,15 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
         $purchasedProvince
             .receive(on: RunLoop.main)
             .removeDuplicates()
+            .compactMap { $0 }
+            .compactMap { province in
+                guard province.price <= player.money else {
+                    return nil
+                }
+                player.money -= province.price
+                player.provinces.append(province)
+                return true
+            }
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
@@ -112,6 +136,10 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
         $collectedIncome
             .receive(on: RunLoop.main)
             .removeDuplicates()
+            .compactMap { $0 }
+            .map { income in
+                self.player.money += income
+            }
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
@@ -119,6 +147,10 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
         $paidTroopSupport
             .receive(on: RunLoop.main)
             .removeDuplicates()
+            .compactMap { $0 }
+            .map { cost in
+                self.player.money -= cost
+            }
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)

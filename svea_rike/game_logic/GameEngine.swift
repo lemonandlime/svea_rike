@@ -26,13 +26,11 @@ class GameEngine {
         
         return playerNames.indices.map { index in
             let family = Family(rawValue: index)!
-            let provinces = family.provinces(numberOfPlayers: numberOfPlayers)
+            let player = Player(name: playerNames[index], family: family)
+            player.money = 15
+            player.provinces = family.provinces(numberOfPlayers: numberOfPlayers)
             
-            return Player(name: playerNames[index],
-                          family: family,
-                          provinces: provinces,
-                          eventCards: [],
-                          points: 0)
+            return player
         }
     }
     

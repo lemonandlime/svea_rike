@@ -7,11 +7,17 @@
 
 import Foundation
 
-enum DiceRoll {
+enum DiceRoll: Int {
     case one
     case two
     case three
     case fore
     case five
     case six
+    
+    static func roll() -> DiceRoll {
+        all.randomElement()!
+    }
+    
+    private static var all: [DiceRoll] = [one, two, three, fore, five, six]
 }

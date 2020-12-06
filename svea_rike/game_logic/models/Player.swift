@@ -7,11 +7,18 @@
 
 import Foundation
 
-struct Player {
+class Player: ObservableObject {
     let name: String
     let family: Family
     
-    var provinces: [Province]
-    var eventCards: [EventCard]
-    var points: Int
+    var provinces: [Province] = []
+    var eventCards: [EventCard] = []
+    var historyCards: [HistoryCard] = []
+    var points: Int = 0
+    var money: Int = 0
+    
+    init(name: String, family: Family) {
+        self.name = name
+        self.family = family
+    }
 }

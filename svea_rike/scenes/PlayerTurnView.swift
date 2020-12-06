@@ -7,18 +7,13 @@
 
 import SwiftUI
 
-//extension PlayerTurnView {
-//    class ViewModel: ObservableObject {
-//
-//    }
-//}
-
 struct PlayerTurnView: View {
     @ObservedObject var turn: PlayerTurn
     
     var body: some View {
         VStack {
-            Text(turn.stage.display)
+            InfoBox()
+            
             Spacer()
             
             if turn.stage == .drawingCard {
@@ -61,6 +56,32 @@ struct PlayerTurnView: View {
                 }
             }
         }.environmentObject(turn)
+    }
+    
+    struct InfoBox: View {
+        @EnvironmentObject var turn: PlayerTurn
+        var body: some View {
+            
+            HStack {
+                Text("Spelares tur")
+                Spacer()
+                Text(turn.player.name)
+            }
+            HStack {
+                Text("Pengar")
+                Spacer()
+                Text(turn.player.money.description)
+            }
+            
+            Text("Förläningar")
+            HStack {
+                ForEach(turn.player.provinces, id: \.self) {
+                    Text($0.name)
+                }
+            }
+            
+            Text(turn.stage.display)
+        }
     }
     
     struct ScienceAndCultureRouteView: View {
@@ -121,14 +142,16 @@ struct PlayerTurnView: View {
                 
                 if turn.stage == .collectionFarmingIncome {
                     Button("Inkassera inkomster") {
-                        turn.collectedIncome = 10
+                        turn.collectedIncome = turn.player.provinces.reduce(0) { value, province in
+                            value + province.crowns
+                        }
                     }
                 }
                 
                 if turn.stage == .purchasingProvince {
                     HStack {
                         ForEach(Province.all, id: \.self) { province in
-                            Button(province.display) {
+                            Button(province.name) {
                                 turn.purchasedProvince = province
                             }
                         }

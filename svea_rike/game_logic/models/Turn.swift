@@ -14,22 +14,19 @@ class Turn: ObservableObject {
     var cancellable = Set<AnyCancellable>()
     var currentPlayerTurnStageObserver: AnyCancellable?
     
-    @Published var playerQueue: [(Player, PlayerTurn)]
+    @Published var playerQueue: [PlayerTurn]
     @Published var currentPlayerTurnIndex: Int = 0
     
     let specialCondition: RegentSpecialCondition
     
     @Published var currentPlayerTurn: PlayerTurn
-    
-    var currentPlayer: Player
-    
+        
     init(players: [Player], condition: RegentSpecialCondition) {
         
-        let playerQueue = players.map { ($0, PlayerTurn()) }
+        let playerQueue = players.map { PlayerTurn(player: $0) }.shuffled()
                 
         self.playerQueue = playerQueue
-        self.currentPlayer = playerQueue[0].0
-        self.currentPlayerTurn = playerQueue[0].1
+        self.currentPlayerTurn = playerQueue[0]
         self.specialCondition = condition
         
         observeCurrentPlayer()
@@ -52,8 +49,7 @@ class Turn: ObservableObject {
     
     private func onPlayerHasFinishedTurn() {
         currentPlayerTurnIndex += 1
-        currentPlayer = playerQueue[currentPlayerTurnIndex].0
-        currentPlayerTurn = playerQueue[currentPlayerTurnIndex].1
+        currentPlayerTurn = playerQueue[currentPlayerTurnIndex]
         observeCurrentPlayer()
     }
     
