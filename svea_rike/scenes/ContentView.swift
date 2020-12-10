@@ -46,7 +46,7 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 15) {
             
             HStack {
-                Text("Regent \(vm.game.regent.display) (\(vm.game.era.display))")
+                Text("Regent \(vm.game.regent.name) (\(vm.game.era.display))")
                 Text(vm.game.turn.specialCondition.display)
             }
         
