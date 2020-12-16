@@ -43,17 +43,28 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
+        ZStack {
             
-            HStack {
-                Text("Regent \(vm.game.regent.name) (\(vm.game.era.display))")
-                Text(vm.game.turn.specialCondition.display)
-            }
-        
+            Image("board")
+            .resizable()
+            .ignoresSafeArea(.all, edges: .all)
+                .aspectRatio(contentMode: ContentMode.fit)
             
-            PlayerTurnView(turn: vm.currentPlayerTurn)
+            VStack(alignment: .leading, spacing: 15) {
+                
+                HStack {
+                    Text("Regent \(vm.game.regent.name) (\(vm.game.era.display))")
+                    Text(vm.game.turn.specialCondition.display)
+                }
             
-        }.padding().frame(maxWidth: 400)
+                
+                PlayerTurnView(turn: vm.currentPlayerTurn)
+                
+            }.padding().frame(maxWidth: 400)
+            
+            
+        }
+       
     }
 }
 
