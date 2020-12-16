@@ -8,10 +8,6 @@
 import Foundation
 
 
-
-Spela innan en annan spelares drag. Du far bestämma vilken verksamhet den spelaren skall ägna sig åt detta drag.
-
-
 enum EventCard: Int {
     case inflytelseriktAmbete
     case fornamtAktenskap
@@ -40,6 +36,238 @@ enum EventCard: Int {
     case penningLan
     case indragningarFranKyrkan
     case forbindelserMedHavet
+    
+    Bondeuppror!
+    Eu våldsamt uppror drabbar en landsanda (välj en
+    förlänng pa spelplanen; denna och samtliga
+    angränsande förläningar drabbas ). Slã en tärning:
+    1-3 Ingenting hánder
+    4 Samtliga drabbade förláningar nmed 1 KRON-
+    SYMBOL förloras
+    5 Samtliga drabbade forläningar ned I eller 2
+    KRONSYMBOLER forloras
+    6 Sasntliga drabbade förläningar förloras
+    Förlorade forlaningar lamnas tillbaka till Riksgalden.
+    
+    Skatteaterbäring
+    3
+    Alla spelare, även du själv, får 5
+    guld var frản Riksgälden.
+    
+    Lokal krigsskatt
+    OHC
+    e
+    Ett kungligt pabud om extra skatt till hären
+    drabbar en landsända vaj en förläning på
+    spelplanen; denna och samtliga angränsande
+    förläningar drabbas). Drabbade spelare mảste
+    omedelbart betala ett guld per truppsymbol
+    som de drabbade förläningarna har.
+    
+    Extra krigsskatt
+    Samtliga spelare nåste omedelbart
+    betala ett extra truppunderhall
+    ett guld per truppsymbol (ej för
+    Militaria).
+    
+    Extra skatt på dina
+    der
+    Spela när du inkasserar inkomster frản dina
+    förläningar. Du tvingar dina bönder att betala
+    extra skatt, vilket dock kan slå tillbaka mot
+    dig själv! Slá en tärning per Förläningskort du
+    har i stället för vanlig avkastning fàr du
+    tärningens resultat i guld i inkomst (vid god
+    skörd fördubblas resultatet),
+    
+    Dälig skörd!
+    7
+    s
+    59
+    Spela ut detta kort just som
+    annan spelare ska inkassera
+    avkastning frản sina förläningar; han
+    eller hon får då INGEN avkastning
+    från sina förläningar med 3
+    kronsynnboler.
+    
+    Förlorad möjligher
+    När du spelar ut detta kort drar du
+    på máfå ett Händelsekort från en
+    annan spelares hand och kastar det.
+    
+    Missväxt
+    Spela ut Just som en annan spelare ska
+    inkassera avkastning fran sna förläningar. En
+    fruktansvärd missväxt drablbar en landsända
+    (välj en förläning på spelplanen; denna och
+    samtliga angränsande förläningar drabbas).
+    Drabbade förläningar ger inga inkomster från
+    jordbruk under resten av detta spelvarv. (Lagg
+    ättemarkerna ned för att markera detta.)
+    
+    Intressemotsattningar
+    Spela ut detta kort när en annan spelare
+    köper en förläning eller ett Historiekort.
+    Spelaren måste omedelbart lägga tillbaka
+    kortet. Han eller hon far tillbaka sitt
+    guld och kan, om han eller hon vill,
+    köpa ett annat kort.
+    
+    Gömda reserver
+    Spela om du har ett mınst ett
+    Slottskort framför dig. Du utnyttjar
+    en hemlig guldreserv och far
+    omedelbart 5 guld.
+    
+    Förtida död
+    En välkänd personlıghet dör i förtid
+    utan att hinna uträtta något av
+    värde. Du får genast ta bort en valfri
+    Kulturpersonlighet, Fältherre,
+    Drottning eller Vetenskapsman ur
+    spelet.
+    
+    Penningvärdet faller:
+    Alla spelare utom du betalar 2 guld
+    var till Riksgälden.
+    
+    politiskt inflytande
+    Detta kort spelar du ut just innan
+    turordningen bestäms i början av ett
+    spelvarv, och du fảr då göra första
+    draget i det spelvarvet.
+    
+    Abdikation!
+    at
+    TEB
+    Så snart du spelar ut detta kort är
+    spelvarvet över, och de som ännu
+    Inte gjort sitt drag går miste om det.
+    (Gäller bara i fredstid.)
+    
+    Förräderi!
+    Spela nar en notspelare vunnit
+    krigsbyte. Hela krigsbytet frản detta
+    fältslag går förlorat för den
+    spelaren! (Ev. kort ligger
+    kvar i spel.)
+    
+    Inspirerande tal
+    Spela ut detta kort och dra 3 nya
+    Händelsekort i utbyte.
+    
+    Slaget vid Kliszow
+    Spela ut detta kort när Sverige befinner
+    sig i krig med Polen, sả fàr du
+    omedelbart ta bort de 2 av fiendens
+    truppkort som har lägst stridsvärde.
+    Spara detta kort framför dig till spelets
+    slut om Sverige vinner detta krig det
+    ger dig dả en extra Anseendepoäng!
+    
+    En tid av omvalvningar
+    009
+    Plocka bort två av de uppslagna
+    Historiekorten, vilka du vill, lägg
+    tillbaka dem underst i högen och
+    dra tvả nya och lägg upp.
+    
+    Kunglig vrede
+    Spela pa valfrı spelare. Kungen är sả missnöjd
+    med hur denne behandlar sina undersåtar att
+    an helt sonika drar in en av spelarens
+    förläningar! Spelaren måste omedelbart lämna
+    tillbaka valfritt Förläningskort till Riksgilden!
+    (En spelare kan INTE bli av med sin sista
+    förläning på detta vis.)
+    
+    Häxprocesser
+    Häxprocesser drabbar en landsända (välj en
+    förläning på spelplanen; denna och samtliga
+    angränsande förläningar drabbas). Drabbade
+    spelare mäste omedelbart slänga bort ett
+    slumpmässigt Händelsekort frản handen
+    för varje drabbad förläning, utan att det
+    har någon effekt!
+    
+    Dolda resurser
+    Du far köpa TVA Historiekort i
+    ditt drag, inte bara ett. (Ar ett av
+    korten en Vetenskapsman fär du
+    köpa tre kort, men du får aldrig
+    köpa fyra!)
+    
+    Slottsbrand
+    En gigantisk eldsvåda ödelägger ett
+    av Sverıges historıska minne:
+    ken. Du far ta bort ett valfritt
+    SLOTT ur spelet helt
+    och hället.
+    
+    Räfst och reduktion
+    Sagiets Ssias Redstia,
+    När du spelar ut detta kort måste
+    alla spelare (även du själv) genast
+    betala HALFTEN av sitt guld till
+    Riksgälden! (Avrunda nedåt, dvs till
+    spelarnas fördel.)
+    
+    God Aministration
+    Spela omedelbart efter att du
+    avslutat ditt drag. Du far
+    omedelbart göra ett nytt drag, men
+    inte välja samma verksamhet som
+    förra gången!
+    
+    Slaget vid Poltay:
+    Spela ut detta kort när Sverige befinner
+    sig 1 krıg. Sverige räkar ut för ett av sina
+    mest svidande militära nederlag
+    nágonsin. Lägg omnedelbart upp
+    ytterligare tvả nya fiendetruppkort, och
+    vänd ned ett valfritt av Sveriges
+    Förläningskort!
+    
+    Svenska stålet biter
+    Spela ut under ett krig, även om du
+    ej deltar. Slä tärningen en gảng. Blir
+    resultatet I-4, fär du genast ta bort
+    det av fiendens truppkort som har
+    lägst stridsvärde.
+    
+    Extra krigsbyte
+    Spela när du fätt en belöning efter
+    att Sverige vunnit ett krig. Du fàr
+    tvả belöningar i stället för en
+    (antingen tvả lika eller två olika).
+    
+    Handelsprivilegier
+    Du far omedelbart ställa ut en extra
+    Handelsman i valfri landscirkel på
+    spelplanen.
+    
+    Mäktig granne
+    Vält en av dna torlanngar son startar en
+    ekonomiskt fejd mot en angränsande törlänıng
+    (se kartan). Slå en tärning och lägg till antalet
+    kronsymboler somn din förläning ger;
+    motstándaren (Riksgälden om förläningen ar
+    ledig) gör detsamma för forläningen som du
+    valde ut. Ar ditt resultat HÖGRE ÄN
+    motstandarens, far du det Förläningskortet.
+    
+    Förnämt aktenskap
+    Spela ut detta kort när du köper en
+    förläning. Du far den då 2 guld
+    billigare per kronsymbol.
+    
+    Inflytelserikt ämbete
+    Sa snart nagon annan använt ett
+    Händelsekort och lagt det i
+    kasthögen, får du spela ut detta kort
+    och då ta upp det kastade kortet till
+    din hand, för framtida bruk.
     
     
     var name: String {
