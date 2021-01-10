@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1A1AED25AB51D7001EC84F /* RegentLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1A1AEC25AB51D7001EC84F /* RegentLineView.swift */; };
+		DF1A1AF325AB5CF2001EC84F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1A1AF225AB5CF2001EC84F /* Array+Extensions.swift */; };
 		DF2E73C7256C5DDF00EBE05D /* svea_rikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73C6256C5DDF00EBE05D /* svea_rikeApp.swift */; };
 		DF2E73C9256C5DDF00EBE05D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E73C8256C5DDF00EBE05D /* ContentView.swift */; };
 		DF2E73CB256C5DE100EBE05D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E73CA256C5DE100EBE05D /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF1A1AEC25AB51D7001EC84F /* RegentLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegentLineView.swift; sourceTree = "<group>"; };
+		DF1A1AF225AB5CF2001EC84F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		DF2E73C3256C5DDF00EBE05D /* svea_rike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = svea_rike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2E73C6256C5DDF00EBE05D /* svea_rikeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = svea_rikeApp.swift; sourceTree = "<group>"; };
 		DF2E73C8256C5DDF00EBE05D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +70,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF1A1AEA25AB51B2001EC84F /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				DF1A1AF125AB5CCB001EC84F /* native_extensions */,
+				DF1A1AEB25AB51BB001EC84F /* view */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		DF1A1AEB25AB51BB001EC84F /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DF1A1AEC25AB51D7001EC84F /* RegentLineView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		DF1A1AF125AB5CCB001EC84F /* native_extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DF1A1AF225AB5CF2001EC84F /* Array+Extensions.swift */,
+			);
+			path = native_extensions;
+			sourceTree = "<group>";
+		};
 		DF2E73BA256C5DDF00EBE05D = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +114,7 @@
 		DF2E73C5256C5DDF00EBE05D /* svea_rike */ = {
 			isa = PBXGroup;
 			children = (
+				DF1A1AEA25AB51B2001EC84F /* shared */,
 				DF4B77B6256C70550087150F /* svea_rike.entitlements */,
 				DF2E73D6256C5DF400EBE05D /* game_logic */,
 				DF2E73C6256C5DDF00EBE05D /* svea_rikeApp.swift */,
@@ -223,7 +253,9 @@
 				DF2E73DC256C5E7400EBE05D /* DiceRoll.swift in Sources */,
 				DF2E73EE256C62BE00EBE05D /* GameEngine.swift in Sources */,
 				DF2E73F3256C630900EBE05D /* Game.swift in Sources */,
+				DF1A1AF325AB5CF2001EC84F /* Array+Extensions.swift in Sources */,
 				DF2E73DF256C5EC300EBE05D /* Player.swift in Sources */,
+				DF1A1AED25AB51D7001EC84F /* RegentLineView.swift in Sources */,
 				DF2E73E2256C5EEF00EBE05D /* EventCard.swift in Sources */,
 				DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */,
 				DF2E73C7256C5DDF00EBE05D /* svea_rikeApp.swift in Sources */,

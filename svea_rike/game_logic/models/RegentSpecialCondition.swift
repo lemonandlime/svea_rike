@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RegentSpecialCondition {
+enum RegentSpecialCondition: Hashable {
     case peace
     case godCrops
     case badCrops

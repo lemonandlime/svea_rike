@@ -13,11 +13,21 @@ class GameEngine {
         let players = createPlayers(playerNames: playerNames)
         
         let game = Game(players: players,
-                        era: .vasaTiden,
+                        era: .green,
                         regent: .gustavVasa,
                         turn: createFirsTurn(players: players))
         
         return game
+    }
+    
+    static func nextTurn(game: inout Game) {
+        guard let nextRegent = game.turn.regent.next else {
+            print("Game over")
+            return
+        }
+        
+        let newTurn = Turn(players: game.players, condition: .peace, regent: nextRegent)
+        game.turn = newTurn
     }
     
     private static func createPlayers(playerNames: [String]) -> [Player] {
@@ -35,6 +45,6 @@ class GameEngine {
     }
     
     private static func createFirsTurn(players: [Player]) -> Turn {
-        Turn(players: players, condition: .peace)
+        Turn(players: players, condition: .peace, regent: .gustavVasa)
     }
 }

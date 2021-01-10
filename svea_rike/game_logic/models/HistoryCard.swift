@@ -46,7 +46,7 @@ enum HistoryCard: HistoryCardProtocol {
     }
     
     var era: Era {
-        .vasaTiden
+        .green
     }
     
 }

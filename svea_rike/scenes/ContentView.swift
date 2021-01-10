@@ -10,21 +10,55 @@ import Combine
 
 class ViewModel: ObservableObject {
     var cancellable = Set<AnyCancellable>()
+    var playerTurnObserver: AnyCancellable?
+    var turnFinishedObserver: AnyCancellable?
+
+    var turnObserver: AnyCancellable?
     
     @ObservedObject var game: Game
     
     @Published var currentPlayerTurn: PlayerTurn
+    @Published var currentTurn: Turn
+    @Published var currentTurnFinished = false
     
     init(game: Game) {
         self.game = game
+        currentTurn = game.turn
+        currentPlayerTurn = game.turn.currentPlayerTurn
         
-        self.currentPlayerTurn = game.turn.currentPlayerTurn
+        turnObserver =
+            game.$turn
+            .receive(on: RunLoop.main)
+            .removeDuplicates()
+            .sink { turn in
+                self.currentTurn = turn
+                self.observeCurrentTurn(turn)
+            }
         
-        game.turn.$currentPlayerTurn
+    }
+    
+    func observeCurrentTurn(_ turn: Turn) {
+        playerTurnObserver?.cancel()
+        turnFinishedObserver?.cancel()
+        
+        playerTurnObserver =
+            turn.$currentPlayerTurn
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .assign(to: \.currentPlayerTurn, on: self)
-            .store(in: &cancellable)
+
+        turnFinishedObserver =
+            turn.$finished
+            .receive(on: RunLoop.main)
+            .assign(to: \.currentTurnFinished, on: self)
+        
+        
+        
+        
+    }
+    
+    func startNewTurn() {
+        GameEngine.nextTurn(game: &game)
     }
     
     deinit {
@@ -36,9 +70,8 @@ struct ContentView: View {
     
     @ObservedObject var vm: ViewModel
 
-    
     init() {
-        let game = GameEngine.createGame(playerNames: ["Kalle", "Tore", "Martin", "David"])
+        let game = GameEngine.createGame(playerNames: ["Kalle"])//, "Tore", "Martin", "David"])
         vm = .init(game: game)
     }
     
@@ -52,17 +85,20 @@ struct ContentView: View {
             
             VStack(alignment: .leading, spacing: 15) {
                 
-                HStack {
-                    Text("Regent \(vm.game.regent.name) (\(vm.game.era.display))")
-                    Text(vm.game.turn.specialCondition.display)
+                RegentLineView(turn: vm.currentTurn)
+                    .frame(height: 40)
+                    .padding(.horizontal, 60)
+                    .padding(.bottom, 50)
+                
+                Spacer()
+                
+                if vm.currentTurnFinished {
+                    Button("Starta nästa regentstid", action: vm.startNewTurn)
                 }
-            
                 
                 PlayerTurnView(turn: vm.currentPlayerTurn)
                 
-            }.padding().frame(maxWidth: 400)
-            
-            
+            }.padding()
         }
        
     }

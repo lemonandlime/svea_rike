@@ -6,22 +6,48 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Era {
-    case vasaTiden
-    case stormaktsTiden
-    case frihetsTiden
+    case green
+    case red
+    case blue
 }
 
 extension Era {
+    
     var display: String {
         switch self {
-        case .vasaTiden:
+        case .green:
             return "Vasatiden"
-        case .stormaktsTiden:
+        case .red:
             return "Stormaktstiden"
-        case .frihetsTiden:
+        case .blue:
             return "FrihetsTiden"
+
+        }
+    }
+    
+    var primaryColor: Color {
+        switch self {
+        case .green:
+            return .green
+        case .red:
+            return .red
+        case .blue:
+            return .blue
+
+        }
+    }
+    
+    var regents: [Regent] {
+        switch self {
+        case .green:
+            return Regent.green
+        case .red:
+            return Regent.red
+        case .blue:
+            return Regent.blue
 
         }
     }

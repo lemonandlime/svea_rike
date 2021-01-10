@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayerTurnView: View {
     @ObservedObject var turn: PlayerTurn
-    
+        
     var body: some View {
         VStack {
             InfoBox()
