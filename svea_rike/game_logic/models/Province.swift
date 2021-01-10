@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ProvinceProtocol {
+protocol ProvinceProtocol: Hashable, Identifiable {
     var name: String { get }
     var crowns: Int { get }
     var troops: Int { get }
@@ -15,7 +15,10 @@ protocol ProvinceProtocol {
     var borderingProvinces: [Province] { get }
 }
 
-enum Province {
+enum Province: Int, Identifiable, Hashable {
+    
+    var id: Int { rawValue }
+    
     case skane
     case vastergotland
     case uppland

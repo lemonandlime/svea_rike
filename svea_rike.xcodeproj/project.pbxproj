@@ -29,6 +29,7 @@
 		DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34620D257C3B82005814AC /* PlayerTurnView.swift */; };
 		DF4B77BB256C72F90087150F /* PlayerTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BA256C72F90087150F /* PlayerTurn.swift */; };
 		DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BD256C7C100087150F /* HistoryCard.swift */; };
+		DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6114F025ABA7F600730240 /* InventoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		DF4B77B6256C70550087150F /* svea_rike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = svea_rike.entitlements; sourceTree = "<group>"; };
 		DF4B77BA256C72F90087150F /* PlayerTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurn.swift; sourceTree = "<group>"; };
 		DF4B77BD256C7C100087150F /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
+		DF6114F025ABA7F600730240 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				DF2E73C8256C5DDF00EBE05D /* ContentView.swift */,
 				DF34620D257C3B82005814AC /* PlayerTurnView.swift */,
+				DF6114F025ABA7F600730240 /* InventoryView.swift */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */,
 				DF2E73C7256C5DDF00EBE05D /* svea_rikeApp.swift in Sources */,
 				DF2E73F7256C643B00EBE05D /* Turn.swift in Sources */,
+				DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */,
 				DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */,
 				DF2E73E8256C606500EBE05D /* Province.swift in Sources */,
 			);

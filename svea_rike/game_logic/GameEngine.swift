@@ -10,12 +10,17 @@ import Foundation
 class GameEngine {
     
     static func createGame(playerNames: [String]) -> Game {
-        let players = createPlayers(playerNames: playerNames)
+        var deck = EventCard.all.shuffled()
+        var players = createPlayers(playerNames: playerNames)
+        let firstTurn = createFirsTurn(players: players)
+        
+        dealEventCards(players: &players, deck: &deck)
         
         let game = Game(players: players,
                         era: .green,
                         regent: .gustavVasa,
-                        turn: createFirsTurn(players: players))
+                        turn: firstTurn,
+                        eventCards: deck)
         
         return game
     }
@@ -41,6 +46,12 @@ class GameEngine {
             player.provinces = family.provinces(numberOfPlayers: numberOfPlayers)
             
             return player
+        }
+    }
+    
+    private static func dealEventCards(players: inout [Player], deck: inout [EventCard]) {
+        players.forEach { player in
+            player.eventCards = deck.popLast(5)
         }
     }
     

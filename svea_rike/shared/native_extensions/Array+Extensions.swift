@@ -16,4 +16,16 @@ extension Array {
         
         return self[index]
     }
+    
+    mutating func popLast(_ number: Int = 1) -> [Element] {
+        var elements = [Element]()
+        
+        repeat {
+            if let element = popLast() {
+                elements.append(element)
+            }
+        } while elements.count < number && !self.isEmpty
+        
+        return elements
+    }
 }
