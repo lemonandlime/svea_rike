@@ -11,11 +11,11 @@ class Player: ObservableObject {
     let name: String
     let family: Family
     
-    var provinces: [Province] = []
-    var eventCards: [EventCard] = []
-    var historyCards: [HistoryCard] = []
-    var points: Int = 0
-    var money: Int = 0
+   @Published var provinces: [Province] = []
+   @Published var eventCards: [EventCard] = []
+   @Published var historyCards: [HistoryCard] = []
+   @Published var points: Int = 0
+   @Published var money: Int = 0
     
     init(name: String, family: Family) {
         self.name = name

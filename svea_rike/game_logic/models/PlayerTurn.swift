@@ -68,6 +68,16 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
         $eventCard
             .receive(on: RunLoop.main)
             .removeDuplicates()
+            .sink { card in
+                if let card = card {
+                    player.eventCards.append(card)
+                }
+            }
+            .store(in: &cancellable)
+        
+        $eventCard
+            .receive(on: RunLoop.main)
+            .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
