@@ -31,7 +31,9 @@ class GameEngine {
             return
         }
         
-        let newTurn = Turn(players: game.players, condition: .peace, regent: nextRegent)
+        let condition = game.regentSpecialConditionCards.drawSpecialCondition(for: nextRegent.era)!
+        
+        let newTurn = Turn(players: game.players, condition: condition, regent: nextRegent)
         game.turn = newTurn
     }
     

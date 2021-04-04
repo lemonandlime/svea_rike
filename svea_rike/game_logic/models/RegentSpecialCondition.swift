@@ -15,6 +15,97 @@ enum RegentSpecialCondition: Hashable {
     case war(Country)
 }
 
+class RegentSpecialConditionDeck {
+    private var greenDeck: [RegentSpecialCondition]
+    private var redDeck: [RegentSpecialCondition]
+    private var blueDeck: [RegentSpecialCondition]
+    
+    init() {
+        greenDeck = [.peace,
+                     .peace,
+                     .peace,
+                     .godCrops,
+                     .godTrade,
+                     .war(.denmark),
+                     .war(.poland),
+                     .war(.prussia),
+                     .war(.russia)]
+        
+        redDeck = [.peace,
+                   .peace,
+                   .peace,
+                   .godCrops,
+                   .godTrade,
+                   .war(.denmark),
+                   .war(.poland),
+                   .war(.prussia),
+                   .war(.russia)]
+        
+        blueDeck = [.peace,
+                    .peace,
+                    .peace,
+                    .godCrops,
+                    .godTrade,
+                    .war(.denmark),
+                    .war(.poland),
+                    .war(.prussia),
+                    .war(.russia)]
+    }
+    
+    func drawSpecialCondition(for era: Era) -> RegentSpecialCondition! {
+        switch era {
+        case .green:
+            return greenDeck.popLast()
+        case .red:
+            return redDeck.popLast()
+        case .blue:
+            return blueDeck.popLast()
+
+        }
+    }
+
+}
+
+extension RegentSpecialCondition {
+    
+    static func newdeck(era: Era) -> [RegentSpecialCondition] {
+        switch era {
+        case .green:
+            return [peace,
+                    peace,
+                    peace,
+                    godCrops,
+                    godTrade,
+                    war(.denmark),
+                    war(.poland),
+                    war(.prussia),
+                    war(.russia)]
+            
+        case .red:
+            return [peace,
+                    peace,
+                    peace,
+                    godCrops,
+                    godTrade,
+                    war(.denmark),
+                    war(.poland),
+                    war(.prussia),
+                    war(.russia)]
+            
+        case .blue:
+            return [peace,
+                    peace,
+                    peace,
+                    godCrops,
+                    godTrade,
+                    war(.denmark),
+                    war(.poland),
+                    war(.prussia),
+                    war(.russia)]
+        }
+    }
+}
+
 extension RegentSpecialCondition {
     var display: String {
         switch self {

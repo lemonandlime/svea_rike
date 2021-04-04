@@ -15,6 +15,9 @@ class Game: ObservableObject {
     @Published var regent: Regent
     @Published var turn: Turn
     @Published var eventCards: [EventCard]
+    
+    var regentSpecialConditionCards = RegentSpecialConditionDeck()
+    
         
     init(players: [Player], era: Era, regent: Regent, turn: Turn, eventCards: [EventCard]) {
         self.players = players
