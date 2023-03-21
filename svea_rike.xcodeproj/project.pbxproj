@@ -59,6 +59,7 @@
 		DF4B77BA256C72F90087150F /* PlayerTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurn.swift; sourceTree = "<group>"; };
 		DF4B77BD256C7C100087150F /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
 		DF6114F025ABA7F600730240 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		DFF6DF6329CA6C3600A18BC0 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +101,7 @@
 		DF2E73BA256C5DDF00EBE05D = {
 			isa = PBXGroup;
 			children = (
+				DFF6DF6329CA6C3600A18BC0 /* Resources */,
 				DF2E73C5256C5DDF00EBE05D /* svea_rike */,
 				DF2E73C4256C5DDF00EBE05D /* Products */,
 			);
