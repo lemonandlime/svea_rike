@@ -20,7 +20,7 @@
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Asset {
-  public enum Images {
+  public enum Image {
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
