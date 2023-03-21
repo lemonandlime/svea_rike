@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,7 @@
 		DF4B77BB256C72F90087150F /* PlayerTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BA256C72F90087150F /* PlayerTurn.swift */; };
 		DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BD256C7C100087150F /* HistoryCard.swift */; };
 		DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6114F025ABA7F600730240 /* InventoryView.swift */; };
+		DFF6DF6629CA733300A18BC0 /* Resources in Frameworks */ = {isa = PBXBuildFile; productRef = DFF6DF6529CA733300A18BC0 /* Resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFF6DF6629CA733300A18BC0 /* Resources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +106,7 @@
 				DFF6DF6329CA6C3600A18BC0 /* Resources */,
 				DF2E73C5256C5DDF00EBE05D /* svea_rike */,
 				DF2E73C4256C5DDF00EBE05D /* Products */,
+				DFF6DF6429CA733300A18BC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +181,13 @@
 			path = scenes;
 			sourceTree = "<group>";
 		};
+		DFF6DF6429CA733300A18BC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +204,9 @@
 			dependencies = (
 			);
 			name = svea_rike;
+			packageProductDependencies = (
+				DFF6DF6529CA733300A18BC0 /* Resources */,
+			);
 			productName = svea_rike;
 			productReference = DF2E73C3256C5DDF00EBE05D /* svea_rike.app */;
 			productType = "com.apple.product-type.application";
@@ -464,6 +477,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DFF6DF6529CA733300A18BC0 /* Resources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Resources;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF2E73BB256C5DDF00EBE05D /* Project object */;
 }

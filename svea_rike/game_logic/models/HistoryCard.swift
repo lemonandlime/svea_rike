@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Resources
 
 protocol HistoryCardProtocol {
     var name: String { get }
@@ -62,6 +62,8 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
     case georg_stiernhielm
     case hedvig_eleonora
     case carl_michael_bellman
+
+    private typealias Images = Asset.Image.HistoryCard
     
     var name: String {
         switch self {
@@ -250,6 +252,101 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
             return "Dotter till en bertig av Holstein-Gottorp, gift med Karl X Gustav. Lat uppföra Drottningholms slott."
         case .carl_michael_bellman:
             return "Diktare, musiker, aktör. Portalfiguren inom svensk vistradition, med en hängiven beundrare i Gustav III."
+        }
+    }
+
+    var image: ImageAsset {
+        switch self {
+        case .tyska_knektar:
+            return Images.tyskaKnektar
+        case .maria_elionora:
+            return Images.mariaElionora
+        case .lennart_torstensson:
+            return Images.lennartTorstensson
+        case .ostindiska_kompaniet:
+            return Images.ostindiskaKompaniet
+        case .falu_koppargruva:
+            return Images.faluKoppargruva
+        case .viborgs_fastning:
+            return Images.viborgsFastning
+        case .johannes_bureus:
+            return Images.johannesBureus
+        case .gustaf_horn:
+            return Images.gustafHorn
+        case .johan_henric_kellgren:
+            return Images.johanHenrikKjellgren
+        case .kungliga_slottet:
+            return Images.kungligaSlottet
+        case .olaus_magnus:
+            return Images.olausMagnus
+        case .haga:
+            return Images.haga
+        case .karin_mansdotter:
+            return Images.karinMansdotter
+        case .hattpartiet:
+            return Images.hattpartiet
+        case .carl_gustaf_armfeldt:
+            return Images.carGustavArmfeldt
+        case .sofia_magdalena:
+            return Images.sofiaMagdalena
+        case .ostersjoflotta:
+            return Images.ostersjoflotta
+        case .carl_von_linne:
+            return Images.carlVonLinne
+        case .axel_von_fersen:
+            return Images.axelVonFersen
+        case .finska_rytteriet:
+            return Images.finskaRytteriet
+        case .forbindelser_med_hansan:
+            return Images.forbindelserMedHansan
+        case .conrad_von_pyhy:
+            return Images.conradVonPyhy
+        case .bergsbruk:
+            return Images.bergsbruk
+        case .olaus_petri:
+            return Images.olausPetri
+        case .drots:
+            return Images.drots
+        case .orbyhus:
+            return Images.orbyhus
+        case .jordreform:
+            return Images.jordreform
+        case .anders_celsius:
+            return Images.andersCelsius
+        case .skokloster:
+            return Images.skokloster
+        case .katarina_jagellonica:
+            return Images.katarinaJagellonica
+        case .vadstena:
+            return Images.vadstena
+        case .karoliner:
+            return Images.karoliner
+        case .kanslipresident:
+            return Images.kanslipresident
+        case .georg_carl_von_dobeln:
+            return Images.georgCarlVonDobeln
+        case .emmanuel_swedenborg:
+            return Images.emmanuelSwedenborg
+        case .tycho_brahe:
+            return Images.tychoBrahe
+        case .jons_jacob_berzelius:
+            return Images.jonsJacobBerzelius
+        case .lovisa_ulrika:
+            return Images.lovisaUlrika
+        case .glimmingehus:
+            return Images.glimmingehus
+        case .manufakturier:
+            return Images.manufakturer
+        case .sala_silvergruva:
+            return Images.salaSilvergruva
+        case .gripsholm:
+            return Images.gripsholm
+        case .georg_stiernhielm:
+            return Images.georgStiernheilm
+        case .hedvig_eleonora:
+            return Images.hedvidElionora
+        case .carl_michael_bellman:
+            return Images.carlMichaelBellman
         }
     }
 

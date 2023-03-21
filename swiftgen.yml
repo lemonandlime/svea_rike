@@ -1,5 +1,5 @@
 input_dir: Resources/Sources/Resources
-output_dir: Resources/Sources/Resources
+output_dir: Resources/Sources/Resources/assets
 xcassets:
   inputs: assets/
   outputs:
