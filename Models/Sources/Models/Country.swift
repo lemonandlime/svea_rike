@@ -15,11 +15,10 @@ public enum Country {
 }
 
 public extension Country {
-    
     static var all: [Country] {
-        return [.russia, .denmark, .prussia, .poland]
+        [.russia, .denmark, .prussia, .poland]
     }
-    
+
     var display: String {
         switch self {
         case .russia:

@@ -15,7 +15,6 @@ public enum Era {
 }
 
 public extension Era {
-    
     var display: String {
         switch self {
         case .green:
@@ -24,10 +23,9 @@ public extension Era {
             return "Stormaktstiden"
         case .blue:
             return "FrihetsTiden"
-
         }
     }
-    
+
     var primaryColor: Color {
         switch self {
         case .green:
@@ -36,10 +34,9 @@ public extension Era {
             return .red
         case .blue:
             return .blue
-
         }
     }
-    
+
     var regents: [Regent] {
         switch self {
         case .green:
@@ -48,7 +45,6 @@ public extension Era {
             return Regent.red
         case .blue:
             return Regent.blue
-
         }
     }
 }

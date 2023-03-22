@@ -5,15 +5,15 @@
 //  Created by Karl Söderberg on 2020-11-23.
 //
 
-import Foundation
 import Combine
+import Foundation
 import SwiftUI
 
 public class PlayerTurn: ObservableObject, Equatable, Hashable {
     public static func == (lhs: PlayerTurn, rhs: PlayerTurn) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
-    
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(eventCard)
         hasher.combine(specialization)
@@ -27,10 +27,9 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
         hasher.combine(hasfinished)
         hasher.combine(stage)
     }
-    
-    
+
     var cancellable = Set<AnyCancellable>()
-    
+
     @Published public var player: Player
     @Published public var eventCard: EventCard? = nil
     @Published public var specialization: Specialization? = nil
@@ -48,42 +47,41 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             print(stage.display)
         }
     }
-    
+
     init(player: Player) {
-        
         self.player = player
-        
+
         $eventCard
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .sink { card in
-                if let card = card {
+                if let card {
                     player.eventCards.append(card)
                 }
             }
             .store(in: &cancellable)
-        
+
         $eventCard
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $specialization
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $incomeSource
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $purchasedHistoryCard
             .receive(on: RunLoop.main)
             .removeDuplicates()
@@ -92,7 +90,7 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
                 guard historyCard.price <= player.money else {
                     return nil
                 }
-                
+
                 player.historyCards.append(historyCard)
                 player.money -= historyCard.price
                 return true
@@ -100,14 +98,14 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $skippedHistoryCardPurchase
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $purchasedProvince
             .receive(on: RunLoop.main)
             .removeDuplicates()
@@ -123,14 +121,14 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $skippedProvincePurchase
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $collectedIncome
             .receive(on: RunLoop.main)
             .removeDuplicates()
@@ -141,7 +139,7 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $paidTroopSupport
             .receive(on: RunLoop.main)
             .removeDuplicates()
@@ -152,14 +150,14 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $addedMerchant
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .map(recalcalculateStage(_:))
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
-        
+
         $hasfinished
             .receive(on: RunLoop.main)
             .removeDuplicates()
@@ -167,56 +165,49 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             .assign(to: \.stage, on: self)
             .store(in: &cancellable)
     }
-    
+
     deinit {
         cancellable.forEach { $0.cancel() }
     }
-    
-    
-    private func recalcalculateStage(_ : Any) -> PlayerTurnStage {
-        
+
+    private func recalcalculateStage(_: Any) -> PlayerTurnStage {
         if eventCard == nil {
             return .drawingCard
         }
-        
-        guard let specialization = specialization else {
+
+        guard let specialization else {
             return .selectingSpecialization
         }
-        
+
         if specialization == .trade {
-            
             if addedMerchant == nil {
                 return .placingMerchant
             }
-            
-            guard let collectedIncome = collectedIncome else {
+
+            guard let collectedIncome else {
                 return .collectingTradeIncome
             }
-            
-            guard let paidTroopSupport = paidTroopSupport else {
+
+            guard let paidTroopSupport else {
                 return .payingTroops
             }
-            
         }
-        
+
         if specialization == .farming {
-            
-            guard let collectedIncome = collectedIncome else {
+            guard let collectedIncome else {
                 return .collectionFarmingIncome
             }
-            
+
             if purchasedProvince == nil, skippedProvincePurchase == false {
                 return .purchasingProvince
             }
-            
         }
-        
+
         if specialization == .scienceAndCulture {
-            
-            guard let incomeSource = incomeSource else {
+            guard let incomeSource else {
                 return .selectingIncomeSource
             }
-            
+
             if collectedIncome == nil {
                 if incomeSource == .farming {
                     return .collectionFarmingIncome
@@ -224,28 +215,25 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
                     return .collectingTradeIncome
                 }
             }
-            
-            guard let paidTroopSupport = paidTroopSupport else {
+
+            guard let paidTroopSupport else {
                 return .payingTroops
             }
-            
+
             if purchasedHistoryCard == nil, skippedHistoryCardPurchase == false {
                 return .purchasingHistoryCard
             }
-            
         }
-        
+
         if !hasfinished {
             return .confirmingFinished
         }
-        
+
         return .done
     }
 }
 
-
 public enum PlayerTurnStage: Int, Equatable {
-    
     case drawingCard
     case selectingSpecialization
     case selectingIncomeSource
@@ -257,7 +245,7 @@ public enum PlayerTurnStage: Int, Equatable {
     case payingTroops
     case confirmingFinished
     case done
-    
+
     public var display: String {
         switch self {
         case .drawingCard:
@@ -285,4 +273,3 @@ public enum PlayerTurnStage: Int, Equatable {
         }
     }
 }
-

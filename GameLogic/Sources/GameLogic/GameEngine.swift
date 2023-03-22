@@ -5,60 +5,60 @@
 //  Created by Karl Söderberg on 2020-11-23.
 //
 
+import Common
 import Foundation
 import Models
-import Common
 
-public class GameEngine {
-    
+public enum GameEngine {
     public static func createGame(playerNames: [String]) -> Game {
         var deck = EventCard.allCases.shuffled()
         var players = createPlayers(playerNames: playerNames)
         let firstTurn = createFirsTurn(players: players)
-        
+
         dealEventCards(players: &players, deck: &deck)
-        
-        let game = Game(players: players,
-                        era: .green,
-                        regent: .gustavVasa,
-                        turn: firstTurn,
-                        eventCards: deck)
-        
+
+        let game = Game(
+            players: players,
+            era: .green,
+            regent: .gustavVasa,
+            turn: firstTurn,
+            eventCards: deck
+        )
+
         return game
     }
-    
+
     public static func nextTurn(game: inout Game) {
         guard let nextRegent = game.turn.regent.next else {
             print("Game over")
             return
         }
-        
+
         let condition = game.regentSpecialConditionCards.drawSpecialCondition(for: nextRegent.era)!
-        
+
         let newTurn = Turn(players: game.players, condition: condition, regent: nextRegent)
         game.turn = newTurn
     }
-    
+
     private static func createPlayers(playerNames: [String]) -> [Player] {
-        
         let numberOfPlayers = playerNames.count
-        
+
         return playerNames.indices.map { index in
             let family = Family(rawValue: index)!
             let player = Player(name: playerNames[index], family: family)
             player.money = 15
             player.provinces = family.provinces(numberOfPlayers: numberOfPlayers)
-            
+
             return player
         }
     }
-    
+
     private static func dealEventCards(players: inout [Player], deck: inout [EventCard]) {
         players.forEach { player in
             player.eventCards = deck.popLast(5)
         }
     }
-    
+
     private static func createFirsTurn(players: [Player]) -> Turn {
         Turn(players: players, condition: .peace, regent: .gustavVasa)
     }

@@ -64,7 +64,7 @@ public enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
     case carl_michael_bellman
 
     private typealias Images = Asset.Image.HistoryCard
-    
+
     public var name: String {
         switch self {
         case .tyska_knektar:
@@ -159,7 +159,7 @@ public enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
             return "CARL MICHAEL BELLMAN"
         }
     }
-    
+
     public var description: String {
         switch self {
         case .tyska_knektar:
@@ -387,54 +387,76 @@ public enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
             }
         }
     }
-    
+
     public var price: Int {
         switch self {
-        case .conrad_von_pyhy, .olaus_petri, .drots, .hattpartiet:
+        case .conrad_von_pyhy, .drots, .hattpartiet, .olaus_petri:
             return 2
-        case .lennart_torstensson, .gustaf_horn, .karin_mansdotter, .carl_gustaf_armfeldt, .axel_von_fersen, .jordreform, .katarina_jagellonica, .kanslipresident, .georg_carl_von_dobeln:
+        case .axel_von_fersen, .carl_gustaf_armfeldt, .georg_carl_von_dobeln, .gustaf_horn,
+             .jordreform, .kanslipresident, .karin_mansdotter, .katarina_jagellonica,
+             .lennart_torstensson:
             return 3
-        case .maria_elionora, .falu_koppargruva, .olaus_magnus, .forbindelser_med_hansan, .tycho_brahe, .sala_silvergruva, .georg_stiernhielm, .hedvig_eleonora:
+        case .falu_koppargruva, .forbindelser_med_hansan, .georg_stiernhielm, .hedvig_eleonora,
+             .maria_elionora, .olaus_magnus, .sala_silvergruva, .tycho_brahe:
             return 4
-        case .tyska_knektar, .ostindiska_kompaniet, .viborgs_fastning, .johan_henric_kellgren, .kungliga_slottet, .haga, .sofia_magdalena, .ostersjoflotta, .finska_rytteriet, .orbyhus, .skokloster, .vadstena, .karoliner, .emmanuel_swedenborg, .lovisa_ulrika, .glimmingehus, .gripsholm, .carl_michael_bellman:
+        case .carl_michael_bellman, .emmanuel_swedenborg, .finska_rytteriet, .glimmingehus,
+             .gripsholm, .haga, .johan_henric_kellgren, .karoliner, .kungliga_slottet,
+             .lovisa_ulrika,
+             .orbyhus, .ostersjoflotta, .ostindiska_kompaniet, .skokloster, .sofia_magdalena,
+             .tyska_knektar, .vadstena, .viborgs_fastning:
             return 5
-        case .johannes_bureus, .jons_jacob_berzelius, .anders_celsius, .bergsbruk, .carl_von_linne:
+        case .anders_celsius, .bergsbruk, .carl_von_linne, .johannes_bureus, .jons_jacob_berzelius:
             return 6
         case .manufakturier:
             return 20
         }
     }
-    
+
     public var cardType: HistoryCardType {
         switch self {
-        case .tyska_knektar, .karoliner, .finska_rytteriet, .ostersjoflotta:
+        case .finska_rytteriet, .karoliner, .ostersjoflotta, .tyska_knektar:
             return .army
-        case .maria_elionora, .karin_mansdotter, .hedvig_eleonora, .sofia_magdalena, .katarina_jagellonica, .lovisa_ulrika:
+        case .hedvig_eleonora, .karin_mansdotter, .katarina_jagellonica, .lovisa_ulrika,
+             .maria_elionora, .sofia_magdalena:
             return .queen
-        case .lennart_torstensson, .carl_gustaf_armfeldt, .gustaf_horn, .axel_von_fersen, .georg_carl_von_dobeln:
+        case .axel_von_fersen, .carl_gustaf_armfeldt, .georg_carl_von_dobeln, .gustaf_horn,
+             .lennart_torstensson:
             return .general
-        case .ostindiska_kompaniet, .falu_koppargruva, .hattpartiet, .jordreform, .kanslipresident, .forbindelser_med_hansan, .bergsbruk, .drots, .manufakturier, .sala_silvergruva:
+        case .bergsbruk, .drots, .falu_koppargruva, .forbindelser_med_hansan, .hattpartiet,
+             .jordreform, .kanslipresident, .manufakturier, .ostindiska_kompaniet,
+             .sala_silvergruva:
             return .resource
-        case .viborgs_fastning, .kungliga_slottet, .haga, .skokloster, .vadstena, .glimmingehus, .orbyhus, .gripsholm:
+        case .glimmingehus, .gripsholm, .haga, .kungliga_slottet, .orbyhus, .skokloster, .vadstena,
+             .viborgs_fastning:
             return .castle
-        case .carl_michael_bellman, .johan_henric_kellgren, .conrad_von_pyhy, .olaus_petri, .emmanuel_swedenborg, .georg_stiernhielm:
+        case .carl_michael_bellman, .conrad_von_pyhy, .emmanuel_swedenborg, .georg_stiernhielm,
+             .johan_henric_kellgren, .olaus_petri:
             return .culturePerson
-        case .carl_von_linne, .tycho_brahe, .johannes_bureus, .olaus_magnus, .anders_celsius, .jons_jacob_berzelius:
+        case .anders_celsius, .carl_von_linne, .johannes_bureus, .jons_jacob_berzelius,
+             .olaus_magnus, .tycho_brahe:
             return .scientist
         }
     }
-    
+
     public var era: Era {
         switch self {
-        case .tyska_knektar, .falu_koppargruva, .viborgs_fastning, .olaus_magnus, .karin_mansdotter, .forbindelser_med_hansan, .conrad_von_pyhy, .bergsbruk, .olaus_petri, .drots, .katarina_jagellonica, .vadstena, .tycho_brahe, .glimmingehus, .sala_silvergruva, .gripsholm:
+        case .bergsbruk, .conrad_von_pyhy, .drots, .falu_koppargruva, .forbindelser_med_hansan,
+             .glimmingehus, .gripsholm, .karin_mansdotter, .katarina_jagellonica, .olaus_magnus,
+             .olaus_petri, .sala_silvergruva, .tycho_brahe, .tyska_knektar, .vadstena,
+             .viborgs_fastning:
             return .green
-        case .maria_elionora, .lennart_torstensson, .johannes_bureus, .gustaf_horn, .carl_gustaf_armfeldt, .orbyhus, .jordreform, .skokloster, .karoliner, .georg_stiernhielm, .hedvig_eleonora:
+        case .carl_gustaf_armfeldt, .georg_stiernhielm, .gustaf_horn, .hedvig_eleonora,
+             .johannes_bureus, .jordreform, .karoliner, .lennart_torstensson, .maria_elionora,
+             .orbyhus, .skokloster:
             return .red
-        case .ostindiska_kompaniet, .johan_henric_kellgren, .kungliga_slottet, .haga, .hattpartiet, .sofia_magdalena, .ostersjoflotta, .carl_von_linne, .axel_von_fersen, .finska_rytteriet, .anders_celsius, .kanslipresident, .georg_carl_von_dobeln, .emmanuel_swedenborg, .jons_jacob_berzelius, .lovisa_ulrika, .manufakturier, .carl_michael_bellman:
+        case .anders_celsius, .axel_von_fersen, .carl_michael_bellman, .carl_von_linne,
+             .emmanuel_swedenborg, .finska_rytteriet, .georg_carl_von_dobeln, .haga, .hattpartiet,
+             .johan_henric_kellgren, .jons_jacob_berzelius, .kanslipresident, .kungliga_slottet,
+             .lovisa_ulrika, .manufakturier, .ostersjoflotta, .ostindiska_kompaniet,
+             .sofia_magdalena:
             return .blue
         }
     }
-    
 }
 
 public enum HistoryCardType {

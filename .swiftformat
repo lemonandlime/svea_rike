@@ -1,0 +1,22 @@
+
+--exclude **/Strings.swift
+--exclude **/Asset.swift
+
+--enable wrap
+--maxwidth 140
+--enable wrapArguments
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--wrapconditions after-first
+--enable wrapAttributes
+--funcattributes prev-line
+--typeattributes prev-line
+--varattributes same-line
+--enable wrapConditionalBodies
+--enable wrapEnumCases
+--disable wrapMultilineStatementBraces
+--enable wrapSingleLineComments
+--disable wrapSwitchCases
+--disable yodaConditions
+

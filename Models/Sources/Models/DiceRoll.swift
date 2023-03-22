@@ -14,10 +14,10 @@ enum DiceRoll: Int {
     case fore
     case five
     case six
-    
+
     static func roll() -> DiceRoll {
         all.randomElement()!
     }
-    
+
     private static var all: [DiceRoll] = [one, two, three, fore, five, six]
 }
