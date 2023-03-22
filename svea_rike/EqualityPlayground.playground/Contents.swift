@@ -5,11 +5,11 @@ str
 enum Hashy: Hashable, Equatable {
     case blank(Blanky)
     case matte(Matty)
-    
+
     struct Blanky: Hashable {
         let name: String
     }
-    
+
     struct Matty: Hashable {
         let name: String
     }
@@ -21,4 +21,3 @@ let aMatte = Hashy.matte(.init(name: "kalle"))
 let isEqual = aBlank == aMatte
 
 print(isEqual)
-

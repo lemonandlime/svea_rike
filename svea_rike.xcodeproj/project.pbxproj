@@ -14,6 +14,7 @@
 		DF2E73CE256C5DE100EBE05D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E73CD256C5DE100EBE05D /* Preview Assets.xcassets */; };
 		DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34620D257C3B82005814AC /* PlayerTurnView.swift */; };
 		DF56D20E29CBA4B500D95BB9 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = DF56D20D29CBA4B500D95BB9 /* Common */; };
+		DF56D21929CBA9FF00D95BB9 /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = DF56D21829CBA9FF00D95BB9 /* SwiftFormat */; };
 		DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6114F025ABA7F600730240 /* InventoryView.swift */; };
 		DFBAB07729CBA0CF003C3F6E /* GameLogic in Frameworks */ = {isa = PBXBuildFile; productRef = DFBAB07629CBA0CF003C3F6E /* GameLogic */; };
 		DFBAB07929CBA0D4003C3F6E /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = DFBAB07829CBA0D4003C3F6E /* Models */; };
@@ -44,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFBAB07929CBA0D4003C3F6E /* Models in Frameworks */,
+				DF56D21929CBA9FF00D95BB9 /* SwiftFormat in Frameworks */,
 				DFF6DF6929CA83E300A18BC0 /* Resources in Frameworks */,
 				DFBAB07729CBA0CF003C3F6E /* GameLogic in Frameworks */,
 				DF56D20E29CBA4B500D95BB9 /* Common in Frameworks */,
@@ -151,6 +153,7 @@
 				DFBAB07629CBA0CF003C3F6E /* GameLogic */,
 				DFBAB07829CBA0D4003C3F6E /* Models */,
 				DF56D20D29CBA4B500D95BB9 /* Common */,
+				DF56D21829CBA9FF00D95BB9 /* SwiftFormat */,
 			);
 			productName = svea_rike;
 			productReference = DF2E73C3256C5DDF00EBE05D /* svea_rike.app */;
@@ -179,6 +182,9 @@
 				Base,
 			);
 			mainGroup = DF2E73BA256C5DDF00EBE05D;
+			packageReferences = (
+				DF56D20F29CBA95F00D95BB9 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+			);
 			productRefGroup = DF2E73C4256C5DDF00EBE05D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -409,10 +415,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		DF56D20F29CBA95F00D95BB9 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		DF56D20D29CBA4B500D95BB9 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;
+		};
+		DF56D21829CBA9FF00D95BB9 /* SwiftFormat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF56D20F29CBA95F00D95BB9 /* XCRemoteSwiftPackageReference "SwiftFormat" */;
+			productName = SwiftFormat;
 		};
 		DFBAB07629CBA0CF003C3F6E /* GameLogic */ = {
 			isa = XCSwiftPackageProductDependency;
