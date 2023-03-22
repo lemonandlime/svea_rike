@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,7 @@
 		DF4B77BB256C72F90087150F /* PlayerTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BA256C72F90087150F /* PlayerTurn.swift */; };
 		DF4B77BE256C7C100087150F /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77BD256C7C100087150F /* HistoryCard.swift */; };
 		DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6114F025ABA7F600730240 /* InventoryView.swift */; };
+		DFF6DF6929CA83E300A18BC0 /* Resources in Frameworks */ = {isa = PBXBuildFile; productRef = DFF6DF6829CA83E300A18BC0 /* Resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		DF4B77BA256C72F90087150F /* PlayerTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurn.swift; sourceTree = "<group>"; };
 		DF4B77BD256C7C100087150F /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
 		DF6114F025ABA7F600730240 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		DFF6DF6329CA6C3600A18BC0 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Resources; sourceTree = "<group>"; };
+		DFF6DF6729CA834D00A18BC0 /* svea_rike.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = svea_rike.xctestplan; path = svea_rike.xcodeproj/svea_rike.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFF6DF6929CA83E300A18BC0 /* Resources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +104,11 @@
 		DF2E73BA256C5DDF00EBE05D = {
 			isa = PBXGroup;
 			children = (
+				DFF6DF6729CA834D00A18BC0 /* svea_rike.xctestplan */,
+				DFF6DF6329CA6C3600A18BC0 /* Resources */,
 				DF2E73C5256C5DDF00EBE05D /* svea_rike */,
 				DF2E73C4256C5DDF00EBE05D /* Products */,
+				DFF6DF6429CA733300A18BC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +183,13 @@
 			path = scenes;
 			sourceTree = "<group>";
 		};
+		DFF6DF6429CA733300A18BC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,6 +206,9 @@
 			dependencies = (
 			);
 			name = svea_rike;
+			packageProductDependencies = (
+				DFF6DF6829CA83E300A18BC0 /* Resources */,
+			);
 			productName = svea_rike;
 			productReference = DF2E73C3256C5DDF00EBE05D /* svea_rike.app */;
 			productType = "com.apple.product-type.application";
@@ -323,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -378,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -399,16 +416,17 @@
 				DEVELOPMENT_TEAM = N856DL6EH7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = svea_rike/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx11.0]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx11.0]" = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "se.appmeat.svea-rike";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
@@ -425,16 +443,17 @@
 				DEVELOPMENT_TEAM = N856DL6EH7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = svea_rike/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx11.0]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx11.0]" = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "se.appmeat.svea-rike";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
@@ -462,6 +481,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DFF6DF6829CA83E300A18BC0 /* Resources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Resources;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF2E73BB256C5DDF00EBE05D /* Project object */;
 }

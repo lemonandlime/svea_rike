@@ -1,0 +1,10 @@
+input_dir: Resources/Sources/Resources
+output_dir: Resources/Sources/Resources/assets
+xcassets:
+  inputs: assets/
+  outputs:
+    templateName: swift5
+    output: assets.swift
+    params:
+      publicAccess: public
+      forceFileNameEnum: true
