@@ -7,19 +7,22 @@ let package = Package(
     products: [
         .library(
             name: "GameLogic",
-            targets: ["GameLogic"]),
+            targets: ["GameLogic"]
+        ),
     ],
     dependencies: [
         .package(path: "../Models"),
         .package(path: "../Resources"),
-        .package(path: "../Common")
+        .package(path: "../Common"),
     ],
     targets: [
         .target(
             name: "GameLogic",
-            dependencies: ["Models", "Resources", "Common"]),
+            dependencies: ["Models", "Resources", "Common"]
+        ),
         .testTarget(
             name: "GameLogicTests",
-            dependencies: ["GameLogic"]),
+            dependencies: ["GameLogic"]
+        ),
     ]
 )

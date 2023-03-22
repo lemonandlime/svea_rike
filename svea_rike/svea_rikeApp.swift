@@ -14,9 +14,4 @@ struct svea_rikeApp: App {
             ContentView()
         }
     }
-    
-    
-    
 }
-
-

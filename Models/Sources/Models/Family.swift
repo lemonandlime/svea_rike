@@ -13,10 +13,10 @@ public enum Family: Int {
     case brahe
     case eka
     case treRosor
-    
-    public func provinces(numberOfPlayers: Int) -> [Province] {
+
+    public func provinces(numberOfPlayers _: Int) -> [Province] {
         var provinces: [Province]
-        
+
         switch self {
         case .sture:
             provinces = [.narke]
@@ -29,7 +29,7 @@ public enum Family: Int {
         case .treRosor:
             provinces = [.skane]
         }
-        
+
         return provinces
     }
 }
