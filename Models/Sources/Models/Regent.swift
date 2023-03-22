@@ -58,7 +58,8 @@ public extension Regent {
         let all = Regent.all
 
         guard let currentIntdex = all.firstIndex(of: self),
-              currentIntdex != all.endIndex else {
+              currentIntdex != all.endIndex
+        else {
             return nil
         }
 

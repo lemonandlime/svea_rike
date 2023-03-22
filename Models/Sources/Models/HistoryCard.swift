@@ -8,15 +8,7 @@
 import Foundation
 import Resources
 
-public protocol HistoryCardProtocol {
-    var name: String { get }
-    var description: String { get }
-    var price: Int { get }
-    var cardType: HistoryCardType { get }
-    var era: Era { get }
-}
-
-public enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
+public enum HistoryCard: String, CaseIterable, Hashable {
     case tyska_knektar
     case maria_elionora
     case lennart_torstensson

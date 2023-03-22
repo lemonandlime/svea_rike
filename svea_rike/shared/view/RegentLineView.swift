@@ -75,7 +75,7 @@ extension RegentLineView {
 
 struct RegentLineView_Previews: PreviewProvider {
     static var previews: some View {
-        RegentLineView(turn: GameEngine.createGame(playerNames: ["Kalle", "Evelina", "Ivar"]).turn)
+        RegentLineView(turn: try! GameEngine.createGame(playerNames: ["Kalle", "Evelina", "Ivar"]).turn)
             .frame(height: 30)
     }
 }

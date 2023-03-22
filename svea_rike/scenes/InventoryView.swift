@@ -139,7 +139,7 @@ struct InventoryView_Previews: PreviewProvider {
         VStack {
             Spacer()
 
-            InventoryView(player: GameEngine.createGame(playerNames: ["kalle"]).players.first!)
+            InventoryView(player: try! GameEngine.createGame(playerNames: ["kalle"]).players.first!)
                 .padding(.horizontal)
         }
     }
