@@ -8,8 +8,6 @@
 import GameLogic
 import Models
 import SwiftUI
-import Models
-import GameLogic
 
 struct RegentLineView: View {
     @ObservedObject var turn: Turn

@@ -2,6 +2,5 @@
 import XCTest
 
 final class GameLogicTests: XCTestCase {
-    func testExample() throws {
-    }
+    func testExample() throws {}
 }

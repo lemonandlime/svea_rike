@@ -8,8 +8,6 @@
 import GameLogic
 import Models
 import SwiftUI
-import Models
-import GameLogic
 
 struct InventoryView: View {
     @ObservedObject var player: Player

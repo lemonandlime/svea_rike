@@ -7,7 +7,6 @@
 
 import Models
 import SwiftUI
-import Models
 
 struct PlayerTurnView: View {
     @ObservedObject var turn: PlayerTurn
