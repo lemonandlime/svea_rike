@@ -48,9 +48,8 @@ final class StartGameTests: XCTestCase {
         }
     }
 
-    func testHaveToBeMoreThanTwoPlayers() {
+    func testHaveToHavePlayers() {
         XCTAssertThrowsError(try GameEngine.createGame(playerNames: []))
-        XCTAssertThrowsError(try GameEngine.createGame(playerNames: ["Alone"]))
     }
 
     private func newGame() throws -> Game {

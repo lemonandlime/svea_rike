@@ -23,7 +23,7 @@ public final class Turn: ObservableObject {
     @Published public var currentPlayerTurn: PlayerTurn
 
     public init(players: [Player], condition: RegentSpecialCondition, regent: Regent) throws {
-        guard players.count > 1 else {
+        guard !players.isEmpty else {
             throw GameEngineError.toFewPlayers
         }
         let playerQueue = players.map { PlayerTurn(player: $0) }.shuffled()

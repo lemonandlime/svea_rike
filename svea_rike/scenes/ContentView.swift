@@ -22,6 +22,7 @@ class ViewModel: ObservableObject {
     @Published var currentPlayerTurn: PlayerTurn
     @Published var currentTurn: Turn
     @Published var currentTurnFinished = false
+    @Published var error: Error?
 
     init(game: Game) {
         self.game = game
@@ -55,7 +56,11 @@ class ViewModel: ObservableObject {
     }
 
     func startNewTurn() {
-        GameEngine.nextTurn(game: &game)
+        do {
+            try GameEngine.nextTurn(game: &game)
+        } catch {
+            self.error = error
+        }
     }
 
     deinit {
@@ -67,7 +72,7 @@ struct ContentView: View {
     @ObservedObject var vm: ViewModel
 
     init() {
-        let game = GameEngine.createGame(playerNames: ["Kalle"]) // , "Tore", "Martin", "David"])
+        let game = try! GameEngine.createGame(playerNames: ["Kalle"])
         vm = .init(game: game)
     }
 
