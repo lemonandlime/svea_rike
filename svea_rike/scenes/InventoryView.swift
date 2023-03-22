@@ -91,11 +91,13 @@ struct InventoryView: View {
                             if province == expanded {
                                 Spacer().frame(height: 10)
                                 HStack {
-                                    ForEach(0..<province.crowns) { _ in
+                                    ForEach(Range<Int>(uncheckedBounds: (lower: 0, upper: province.crowns))) { _ in
                                         Image(systemName: "figure.wave").font(.title)
                                     }
                                 }.frame(maxWidth: .infinity)
-                                .overlay(Image(systemName: costIconName(province)).font(.title), alignment: .bottomTrailing)
+                                    .overlay(alignment: .bottomTrailing) {
+                                        Image(systemName: costIconName(province)).font(.title)
+                                    }
                             }
                             
                         }
