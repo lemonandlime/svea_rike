@@ -184,17 +184,17 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
                 return .placingMerchant
             }
 
-            guard let collectedIncome else {
+            guard collectedIncome != nil else {
                 return .collectingTradeIncome
             }
 
-            guard let paidTroopSupport else {
+            guard paidTroopSupport != nil else {
                 return .payingTroops
             }
         }
 
         if specialization == .farming {
-            guard let collectedIncome else {
+            guard collectedIncome != nil else {
                 return .collectionFarmingIncome
             }
 
@@ -216,7 +216,7 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
                 }
             }
 
-            guard let paidTroopSupport else {
+            guard paidTroopSupport != nil else {
                 return .payingTroops
             }
 
