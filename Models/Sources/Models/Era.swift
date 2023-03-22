@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-enum Era {
+public enum Era {
     case green
     case red
     case blue
 }
 
-extension Era {
+public extension Era {
     
     var display: String {
         switch self {

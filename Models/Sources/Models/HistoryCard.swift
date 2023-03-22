@@ -8,7 +8,7 @@
 import Foundation
 import Resources
 
-protocol HistoryCardProtocol {
+public protocol HistoryCardProtocol {
     var name: String { get }
     var description: String { get }
     var price: Int { get }
@@ -16,7 +16,7 @@ protocol HistoryCardProtocol {
     var era: Era { get }
 }
 
-enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
+public enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
     case tyska_knektar
     case maria_elionora
     case lennart_torstensson
@@ -65,7 +65,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
 
     private typealias Images = Asset.Image.HistoryCard
     
-    var name: String {
+    public var name: String {
         switch self {
         case .tyska_knektar:
             return "TYSKA KNEKTAR"
@@ -160,7 +160,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .tyska_knektar:
             return "Under i stort sett samtliza europeiska krig under 1500- och 1600-talen arvändes legoknektar av de stridande parterna."
@@ -255,7 +255,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
         }
     }
 
-    var image: ImageAsset {
+    public var image: ImageAsset {
         switch self {
         case .tyska_knektar:
             return Images.tyskaKnektar
@@ -350,7 +350,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
         }
     }
 
-    var actionDescription: String {
+    public var actionDescription: String {
         switch cardType {
         case .queen:
             return "Ger dig 2 extra guld när du väljer Handel som verksamhet."
@@ -388,7 +388,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
         }
     }
     
-    var price: Int {
+    public var price: Int {
         switch self {
         case .conrad_von_pyhy, .olaus_petri, .drots, .hattpartiet:
             return 2
@@ -405,7 +405,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
         }
     }
     
-    var cardType: HistoryCardType {
+    public var cardType: HistoryCardType {
         switch self {
         case .tyska_knektar, .karoliner, .finska_rytteriet, .ostersjoflotta:
             return .army
@@ -424,7 +424,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
         }
     }
     
-    var era: Era {
+    public var era: Era {
         switch self {
         case .tyska_knektar, .falu_koppargruva, .viborgs_fastning, .olaus_magnus, .karin_mansdotter, .forbindelser_med_hansan, .conrad_von_pyhy, .bergsbruk, .olaus_petri, .drots, .katarina_jagellonica, .vadstena, .tycho_brahe, .glimmingehus, .sala_silvergruva, .gripsholm:
             return .green
@@ -437,7 +437,7 @@ enum HistoryCard: String, HistoryCardProtocol, CaseIterable, Hashable {
     
 }
 
-enum HistoryCardType {
+public enum HistoryCardType {
     case queen
     case culturePerson
     case castle

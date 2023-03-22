@@ -9,12 +9,12 @@ import Foundation
 import Combine
 import SwiftUI
 
-class PlayerTurn: ObservableObject, Equatable, Hashable {
-    static func == (lhs: PlayerTurn, rhs: PlayerTurn) -> Bool {
+public class PlayerTurn: ObservableObject, Equatable, Hashable {
+    public static func == (lhs: PlayerTurn, rhs: PlayerTurn) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(eventCard)
         hasher.combine(specialization)
         hasher.combine(incomeSource)
@@ -31,31 +31,19 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
     
     var cancellable = Set<AnyCancellable>()
     
-    @Published var player: Player
-    
-    @Published var eventCard: EventCard? = nil
-    
-    @Published var specialization: Specialization? = nil
-    
-    @Published var incomeSource: Specialization? = nil
-    
-    @Published var purchasedHistoryCard: HistoryCard? = nil
-    
-    @Published var skippedHistoryCardPurchase = false
-    
-    @Published var purchasedProvince: Province? = nil
-    
-    @Published var skippedProvincePurchase = false
-    
-    @Published var collectedIncome: Int? = nil
-    
-    @Published var paidTroopSupport: Int? = nil
-    
-    @Published var addedMerchant: Country? = nil
-    
-    @Published var hasfinished = false
-    
-    @Published var stage: PlayerTurnStage = .drawingCard {
+    @Published public var player: Player
+    @Published public var eventCard: EventCard? = nil
+    @Published public var specialization: Specialization? = nil
+    @Published public var incomeSource: Specialization? = nil
+    @Published public var purchasedHistoryCard: HistoryCard? = nil
+    @Published public var skippedHistoryCardPurchase = false
+    @Published public var purchasedProvince: Province? = nil
+    @Published public var skippedProvincePurchase = false
+    @Published public var collectedIncome: Int? = nil
+    @Published public var paidTroopSupport: Int? = nil
+    @Published public var addedMerchant: Country? = nil
+    @Published public var hasfinished = false
+    @Published public var stage: PlayerTurnStage = .drawingCard {
         didSet {
             print(stage.display)
         }
@@ -256,7 +244,7 @@ class PlayerTurn: ObservableObject, Equatable, Hashable {
 }
 
 
-enum PlayerTurnStage: Int, Equatable {
+public enum PlayerTurnStage: Int, Equatable {
     
     case drawingCard
     case selectingSpecialization
@@ -270,7 +258,7 @@ enum PlayerTurnStage: Int, Equatable {
     case confirmingFinished
     case done
     
-    var display: String {
+    public var display: String {
         switch self {
         case .drawingCard:
             return "Dra ett händelsekort"

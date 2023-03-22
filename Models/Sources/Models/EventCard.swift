@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum EventCard: Int {
+public enum EventCard: String, CaseIterable {
     case inflytelseriktAmbete
     case fornamtAktenskap
     case maktigGranne
@@ -64,65 +64,7 @@ enum EventCard: Int {
     case svenskaStaletBiter
     case extraKrigsbyte
     
-    static var all: [EventCard] { [
-        .inflytelseriktAmbete,
-        .fornamtAktenskap,
-        .maktigGranne,
-        .handelsprivilegier,
-        .hogforraderi,
-        .slagetVidNarva,
-        .foradstag,
-        .tagetOverStoraBalt,
-        .slipadForhandlare,
-        .efterfraganPaImportvaror,
-        .ranksmideri,
-        .urHetluften,
-        .blokadbrytare,
-        .formyndarregering,
-        .pestenHarjar,
-        .overlagsenTaktiker,
-        .maskeradmordet,
-        .kravallerBlandBorgerskapet,
-        .diplomatiskaPatryckningar,
-        .grannfejd,
-        .extraSkattTillKyrkan,
-        .krigetsVindar,
-        .fallenIOnad,
-        .slagetVidBreitenfeld,
-        .penningLan,
-        .indragningarFranKyrkan,
-        .forbindelserMedHavet,
-        .bondeuppror,
-        .skatteaterbaring,
-        .lokalKrigsskatt,
-        .extraKrigsskatt,
-        .extraSkattPaDinaBonder,
-        .daligSkord,
-        .forloradMojlighet,
-        .missvaxt,
-        .intressemotsattningar,
-        .gomdaReserver,
-        .fortidaDod,
-        .penningvardetFaller,
-        .politisktInflytande,
-        .abdikation,
-        .foraderi,
-        .inspirerandeTal,
-        .slagetVidKliszow,
-        .enTidAvOmvalvningar,
-        .kungligVrede,
-        .haxprocesser,
-        .doldaResurser,
-        .slottsbrand,
-        .rafstOchReduktion,
-        .godAdministration,
-        .slagetVidPoltava,
-        .svenskaStaletBiter,
-        .extraKrigsbyte
-    ]
-    }
-    
-    var name: String {
+    public var name: String {
         switch self {
         case .inflytelseriktAmbete: return "Inflytelserikt ämbete"
         case .fornamtAktenskap: return "Förnämt äktenskap"
@@ -184,7 +126,7 @@ enum EventCard: Int {
     
     
     
-    var description: String {
+    public var description: String {
         
         switch self {
         case .inflytelseriktAmbete:
