@@ -23,6 +23,27 @@
         "identifier" : "ResourcesTests",
         "name" : "ResourcesTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Common",
+        "identifier" : "CommonTests",
+        "name" : "CommonTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:GameLogic",
+        "identifier" : "GameLogicTests",
+        "name" : "GameLogicTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Models",
+        "identifier" : "ModelsTests",
+        "name" : "ModelsTests"
+      }
     }
   ],
   "version" : 1
