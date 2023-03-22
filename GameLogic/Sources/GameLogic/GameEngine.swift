@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Models
+import Common
 
-class GameEngine {
+public class GameEngine {
     
-    static func createGame(playerNames: [String]) -> Game {
-        var deck = EventCard.all.shuffled()
+    public static func createGame(playerNames: [String]) -> Game {
+        var deck = EventCard.allCases.shuffled()
         var players = createPlayers(playerNames: playerNames)
         let firstTurn = createFirsTurn(players: players)
         
@@ -25,7 +27,7 @@ class GameEngine {
         return game
     }
     
-    static func nextTurn(game: inout Game) {
+    public static func nextTurn(game: inout Game) {
         guard let nextRegent = game.turn.regent.next else {
             print("Game over")
             return

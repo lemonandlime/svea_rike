@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ProvinceProtocol: Hashable, Identifiable {
+public protocol ProvinceProtocol: Hashable, Identifiable {
     var name: String { get }
     var crowns: Int { get }
     var troops: Int { get }
@@ -15,9 +15,9 @@ protocol ProvinceProtocol: Hashable, Identifiable {
     var borderingProvinces: [Province] { get }
 }
 
-enum Province: Int, Identifiable, Hashable {
+public enum Province: Int, Identifiable, Hashable {
     
-    var id: Int { rawValue }
+    public var id: Int { rawValue }
     
     case skane
     case vastergotland
@@ -30,11 +30,11 @@ enum Province: Int, Identifiable, Hashable {
 
 extension Province: ProvinceProtocol {
     
-    static var all: [Province] {
+    public static var all: [Province] {
         return [.skane, vastergotland, uppland, narke, sodermanland, lappland]
     }
     
-    var name: String {
+    public var name: String {
         switch self {
             case .skane:
                 return "Skåne"
@@ -51,7 +51,7 @@ extension Province: ProvinceProtocol {
         }
     }
     
-    var price: Int {
+    public var price: Int {
         switch self {
             case .skane, .vastergotland, .uppland, .narke, .sodermanland:
                 return 21
@@ -60,7 +60,7 @@ extension Province: ProvinceProtocol {
         }
     }
     
-    var crowns: Int {
+    public var crowns: Int {
         switch self {
             case .skane, .vastergotland, .uppland, .narke, .sodermanland:
                 return 3
@@ -69,7 +69,7 @@ extension Province: ProvinceProtocol {
         }
     }
     
-    var troops: Int {
+    public var troops: Int {
         switch self {
             case .vastergotland, .uppland, .sodermanland:
                 return 3
@@ -80,7 +80,7 @@ extension Province: ProvinceProtocol {
         }
     }
     
-    var borderingProvinces: [Province] {
+    public var borderingProvinces: [Province] {
         switch self {
             case .skane:
                 return []

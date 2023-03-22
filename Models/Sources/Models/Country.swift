@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum Country {
+public enum Country {
     case russia
     case denmark
     case prussia
     case poland
 }
 
-extension Country {
+public extension Country {
     
     static var all: [Country] {
         return [.russia, .denmark, .prussia, .poland]

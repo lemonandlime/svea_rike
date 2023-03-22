@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Combine
+import Models
+import GameLogic
 
 class ViewModel: ObservableObject {
     var cancellable = Set<AnyCancellable>()

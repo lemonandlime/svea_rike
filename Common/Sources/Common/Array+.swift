@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
     func object(at index: Int) -> Element? {
         guard self.endIndex < index else {

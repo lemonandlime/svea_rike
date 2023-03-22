@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum Family: Int {
+public enum Family: Int {
     case sture
     case grip
     case brahe
     case eka
     case treRosor
     
-    func provinces(numberOfPlayers: Int) -> [Province] {
+    public func provinces(numberOfPlayers: Int) -> [Province] {
         var provinces: [Province]
         
         switch self {

@@ -9,21 +9,21 @@ import Foundation
 import Combine
 import SwiftUI
 
-final class Turn: ObservableObject {
+public final class Turn: ObservableObject {
 
     var cancellable = Set<AnyCancellable>()
     var currentPlayerTurnStageObserver: AnyCancellable?
     
     @Published var playerQueue: [PlayerTurn]
     @Published var currentPlayerTurnIndex: Int = 0
-    @Published var finished: Bool = false
+    @Published public var finished: Bool = false
     
-    let specialCondition: RegentSpecialCondition
-    let regent: Regent
+    public let specialCondition: RegentSpecialCondition
+    public let regent: Regent
     
-    @Published var currentPlayerTurn: PlayerTurn
+    @Published public var currentPlayerTurn: PlayerTurn
         
-    init(players: [Player], condition: RegentSpecialCondition, regent: Regent) {
+    public init(players: [Player], condition: RegentSpecialCondition, regent: Regent) {
         
         let playerQueue = players.map { PlayerTurn(player: $0) }.shuffled()
                 
@@ -68,11 +68,11 @@ final class Turn: ObservableObject {
 }
 
 extension Turn: Hashable {
-    static func == (lhs: Turn, rhs: Turn) -> Bool {
+    public static func == (lhs: Turn, rhs: Turn) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(playerQueue)
         hasher.combine(currentPlayerTurnIndex)
         hasher.combine(finished)

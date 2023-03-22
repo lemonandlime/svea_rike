@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Regent: Int, Hashable {
+public enum Regent: String, Hashable {
     case gustavVasa
     case erik14
     case johan3
@@ -27,10 +27,10 @@ enum Regent: Int, Hashable {
 }
 
 extension Regent: Identifiable {
-    var id: Int { self.rawValue }
+    public var id: String { self.rawValue }
 }
 
-extension Regent {
+public extension Regent {
     var name: String {
         switch self {
             case .gustavVasa: return "Gustav Vasa"

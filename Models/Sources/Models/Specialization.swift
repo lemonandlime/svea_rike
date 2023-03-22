@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Specialization {
+public enum Specialization {
     case farming
     case trade
     case scienceAndCulture

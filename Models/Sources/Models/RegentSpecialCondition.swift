@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RegentSpecialCondition: Hashable {
+public enum RegentSpecialCondition: Hashable {
     case peace
     case godCrops
     case badCrops
@@ -15,12 +15,12 @@ enum RegentSpecialCondition: Hashable {
     case war(Country)
 }
 
-class RegentSpecialConditionDeck {
+public class RegentSpecialConditionDeck {
     private var greenDeck: [RegentSpecialCondition]
     private var redDeck: [RegentSpecialCondition]
     private var blueDeck: [RegentSpecialCondition]
     
-    init() {
+    public init() {
         greenDeck = [.peace,
                      .peace,
                      .peace,
@@ -52,7 +52,7 @@ class RegentSpecialConditionDeck {
                     .war(.russia)]
     }
     
-    func drawSpecialCondition(for era: Era) -> RegentSpecialCondition! {
+    public func drawSpecialCondition(for era: Era) -> RegentSpecialCondition! {
         switch era {
         case .green:
             return greenDeck.popLast()
@@ -66,7 +66,7 @@ class RegentSpecialConditionDeck {
 
 }
 
-extension RegentSpecialCondition {
+public extension RegentSpecialCondition {
     
     static func newdeck(era: Era) -> [RegentSpecialCondition] {
         switch era {
@@ -106,7 +106,7 @@ extension RegentSpecialCondition {
     }
 }
 
-extension RegentSpecialCondition {
+public extension RegentSpecialCondition {
     var display: String {
         switch self {
         case .peace:

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Models
+import GameLogic
 
 struct RegentLineView: View {
     
