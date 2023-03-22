@@ -10,10 +10,10 @@ import Foundation
 import Models
 
 public enum GameEngine {
-    public static func createGame(playerNames: [String]) -> Game {
+    public static func createGame(playerNames: [String]) throws -> Game {
         var deck = EventCard.allCases.shuffled()
         var players = createPlayers(playerNames: playerNames)
-        let firstTurn = createFirsTurn(players: players)
+        let firstTurn = try createFirsTurn(players: players)
 
         dealEventCards(players: &players, deck: &deck)
 
@@ -28,7 +28,7 @@ public enum GameEngine {
         return game
     }
 
-    public static func nextTurn(game: inout Game) {
+    public static func nextTurn(game: inout Game) throws {
         guard let nextRegent = game.turn.regent.next else {
             print("Game over")
             return
@@ -36,7 +36,7 @@ public enum GameEngine {
 
         let condition = game.regentSpecialConditionCards.drawSpecialCondition(for: nextRegent.era)!
 
-        let newTurn = Turn(players: game.players, condition: condition, regent: nextRegent)
+        let newTurn = try Turn(players: game.players, condition: condition, regent: nextRegent)
         game.turn = newTurn
     }
 
@@ -59,7 +59,7 @@ public enum GameEngine {
         }
     }
 
-    private static func createFirsTurn(players: [Player]) -> Turn {
-        Turn(players: players, condition: .peace, regent: .gustavVasa)
+    private static func createFirsTurn(players: [Player]) throws -> Turn {
+        try Turn(players: players, condition: .peace, regent: .gustavVasa)
     }
 }
