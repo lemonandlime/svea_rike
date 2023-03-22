@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "29A900DB-886D-4D16-BB24-05E56164B0BD",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:svea_rike.xcodeproj",
+      "identifier" : "DF2E73C2256C5DDF00EBE05D",
+      "name" : "svea_rike"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Resources",
+        "identifier" : "ResourcesTests",
+        "name" : "ResourcesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
