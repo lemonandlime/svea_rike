@@ -2,10 +2,12 @@ import SwiftUI
 import Resources
 import Models
 import Common
+import GameLogic
 
 struct HistoryCardPickerView: View {
-    
-    let cards: [HistoryCard]
+
+    @ObservedObject var game: Game
+
     let onPurchase: (HistoryCard) -> Void
 
     @MainActor
@@ -25,10 +27,17 @@ struct HistoryCardPickerView: View {
         }
     }
 
+    @MainActor
+    private func purchase(card: HistoryCard) {
+        onPurchase(card)
+        selected = nil
+        previouslySelected = nil
+    }
+
     var body: some View {
         VStack {
-            row(cards: Array(cards.prefix(2)))
-            row(cards: Array(cards.dropFirst(2)))
+            row(cards: Array(game.historyCards.prefix(2)))
+            row(cards: Array(game.historyCards.dropFirst(2)))
         }
         .animation(.easeInOut, value: selected)
     }
@@ -45,7 +54,7 @@ struct HistoryCardPickerView: View {
                             .onTapGesture { didTap(card: card) }
 
                         Button("Köp historiekort") {
-                            onPurchase(card)
+                            purchase(card: card)
                         }
                     }
                     .zIndex((card == (previouslySelected)) ? 2 : 1)
@@ -66,6 +75,6 @@ private extension [HistoryCard] {
 
 struct HistoryCardPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryCardPickerView(cards: [.anders_celsius, .bergsbruk, .carl_michael_bellman, .conrad_von_pyhy], onPurchase: {_ in })
+        HistoryCardPickerView(game: try! GameEngine.createGame(playerNames: ["Kalle"]), onPurchase: {_ in })
     }
 }

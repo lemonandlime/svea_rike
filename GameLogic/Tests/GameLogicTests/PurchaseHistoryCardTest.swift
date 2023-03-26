@@ -17,7 +17,7 @@ final class PurchaseHistoryCardTest: XCTestCase {
         let cardToPurchase = sut.historyCards.first!
         XCTAssertTrue(sut.turn.currentPlayerTurn.player.historyCards.isEmpty)
 
-        try sut.purchasedHistoryCard(historyCard: cardToPurchase)
+        try sut.buy(historyCard: cardToPurchase)
 
         XCTAssertEqual(playerTurn.purchasedHistoryCard, cardToPurchase)
         try await Task.sleep(for: .milliseconds(10))
@@ -31,7 +31,7 @@ final class PurchaseHistoryCardTest: XCTestCase {
         playerTurn.player.money = 1
         let cardToPurchase = sut.historyCards.first!
 
-        XCTAssertThrowsError(try sut.purchasedHistoryCard(historyCard: cardToPurchase)) { error in
+        XCTAssertThrowsError(try sut.buy(historyCard: cardToPurchase)) { error in
             XCTAssertEqual(error as? GameEngineError, GameEngineError.insufficientFunds)
         }
 

@@ -62,25 +62,32 @@ struct PlayerTurnView: View {
     struct InfoBox: View {
         @EnvironmentObject var turn: PlayerTurn
         var body: some View {
-            HStack {
-                Text("Spelares tur")
-                Spacer()
-                Text(turn.player.name)
-            }
-            HStack {
-                Text("Pengar")
-                Spacer()
-                Text(turn.player.money.description)
-            }
-
-            Text("Förläningar")
-            HStack {
-                ForEach(turn.player.provinces, id: \.self) {
-                    Text($0.name)
+            VStack(alignment: .leading) {
+                HStack() {
+                    Text("Spelares tur")
+                    Text(turn.player.name)
                 }
-            }
+                HStack {
+                    Text("Pengar")
+                    Text(turn.player.money.description)
+                }
 
-            Text(turn.stage.display)
+                Text("Förläningar")
+                HStack {
+                    ForEach(turn.player.provinces, id: \.self) {
+                        Text($0.name)
+                    }
+                }
+
+                Text("Historiekort")
+                HStack {
+                    ForEach(turn.player.historyCards) {
+                        Text($0.name)
+                    }
+                }
+
+                Text(turn.stage.display)
+            }
         }
     }
 

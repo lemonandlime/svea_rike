@@ -73,10 +73,19 @@ public class Game: ObservableObject {
 }
 
 public extension Game {
-    func purchasedHistoryCard(historyCard: HistoryCard) throws {
+    func buy(historyCard: HistoryCard) throws {
         guard turn.currentPlayerTurn.player.money >= historyCard.price else {
             throw GameEngineError.insufficientFunds
         }
+
+        guard turn.currentPlayerTurn.purchasedHistoryCard == nil else {
+            throw GameEngineError.alreadyPurchasedThisTurn
+        }
+
+        guard turn.currentPlayerTurn.stage == .purchasingHistoryCard else {
+            throw GameEngineError.notInPurchaseState
+        }
+
         turn.currentPlayerTurn.purchasedHistoryCard = try historyCardDeck.take(historyCard)
     }
 }

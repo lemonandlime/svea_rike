@@ -17,12 +17,13 @@ class ViewModel: ObservableObject {
 
     var turnObserver: AnyCancellable?
 
-    @ObservedObject var game: Game
+    var game: Game
 
     @Published var currentPlayerTurn: PlayerTurn
     @Published var currentTurn: Turn
     @Published var currentTurnFinished = false
-    @Published var error: Error?
+    @Published var error: GameEngineError?
+    @Published var presentAlert = false
 
     init(game: Game) {
         self.game = game
@@ -37,6 +38,11 @@ class ViewModel: ObservableObject {
                     self.currentTurn = turn
                     self.observeCurrentTurn(turn)
                 }
+
+        $error
+            .receive(on: RunLoop.main)
+            .map { $0 != nil}
+            .assign(to: &$presentAlert)
     }
 
     func observeCurrentTurn(_ turn: Turn) {
@@ -55,12 +61,27 @@ class ViewModel: ObservableObject {
                 .assign(to: \.currentTurnFinished, on: self)
     }
 
+    @MainActor
     func startNewTurn() {
         do {
             try GameEngine.nextTurn(game: &game)
         } catch {
-            self.error = error
+            setError(error)
         }
+    }
+
+    @MainActor
+    func purchaseHistoryCard(_ card: HistoryCard) {
+        do {
+            try game.buy(historyCard: card)
+        } catch {
+            setError(error)
+        }
+    }
+
+    @MainActor
+    func setError(_ error: Error) {
+        self.error = error as? GameEngineError ?? GameEngineError.unknown
     }
 
     deinit {
@@ -95,10 +116,18 @@ struct ContentView: View {
                     Button("Starta nästa regentstid", action: vm.startNewTurn)
                 }
 
+                HistoryCardPickerView(game: vm.game) { card in
+                    vm.purchaseHistoryCard(card)
+                }
+
                 PlayerTurnView(turn: vm.currentPlayerTurn)
 
             }.padding()
         }
+        .alert(isPresented: $vm.presentAlert, error: vm.error) {
+            Text("Ok")
+        }
+
     }
 }
 
