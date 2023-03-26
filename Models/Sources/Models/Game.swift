@@ -5,9 +5,9 @@
 //  Created by Karl Söderberg on 2020-11-23.
 //
 
+import Combine
 import Foundation
 import SwiftUI
-import Combine
 
 class HistoryCardDeck: ObservableObject {
     @Published var historyCards: [HistoryCard] = []
@@ -16,7 +16,7 @@ class HistoryCardDeck: ObservableObject {
     @Published var era: Era = .green
 
     init(historyCards: [HistoryCard], era: Era) {
-        self.setup()
+        setup()
         self.historyCards = historyCards
         self.era = era
     }
@@ -51,6 +51,7 @@ public class Game: ObservableObject {
     @Published public var eventCards: [EventCard]
 
     // MARK: History Cards
+
     let historyCardDeck: HistoryCardDeck
     @Published public var historyCards: [HistoryCard] = []
 
@@ -62,8 +63,8 @@ public class Game: ObservableObject {
         self.regent = regent
         self.turn = turn
         self.eventCards = eventCards
-        self.historyCardDeck = HistoryCardDeck(historyCards: historyCards, era: era)
-        self.setup()
+        historyCardDeck = HistoryCardDeck(historyCards: historyCards, era: era)
+        setup()
     }
 
     private func setup() {

@@ -22,7 +22,11 @@ let package = Package(
         ),
         .testTarget(
             name: "GameLogicTests",
-            dependencies: ["GameLogic"]
+            dependencies:
+                [
+                    "GameLogic",
+                    .product(name: "TestHelper", package: "Common"),
+                ]
         ),
     ]
 )

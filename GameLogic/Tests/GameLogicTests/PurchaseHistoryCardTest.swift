@@ -1,10 +1,10 @@
-import XCTest
-import Models
 import Common
 @testable import GameLogic
+import Models
+import XCTest
+import TestHelper
 
 final class PurchaseHistoryCardTest: XCTestCase {
-
     func testGameHasHistoryCardPurchaseOptions() async throws {
         let sut = try await newGame()
         XCTAssertEqual(sut.historyCards.count, 4)
@@ -46,5 +46,4 @@ final class PurchaseHistoryCardTest: XCTestCase {
         await game.$historyCards.waitFor { !$0.isEmpty }
         return game
     }
-
 }

@@ -44,7 +44,7 @@ public extension XCTestCase {
         // This time, we use Swift's Result type to keep track
         // of the result of our Combine pipeline:
         var result: Result<T.Output, Error>?
-        let expectation = self.expectation(description: "Awaiting publisher")
+        let expectation = expectation(description: "Awaiting publisher")
         expectation.assertForOverFulfill = false
 
         let cancellable = publisher.sink(
