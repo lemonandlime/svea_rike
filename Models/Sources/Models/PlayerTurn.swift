@@ -87,12 +87,8 @@ public class PlayerTurn: ObservableObject, Equatable, Hashable {
             .removeDuplicates()
             .compactMap { $0 }
             .compactMap { historyCard in
-                guard historyCard.price <= player.money else {
-                    return nil
-                }
-
                 player.historyCards.append(historyCard)
-                player.money -= historyCard.price
+                player.money = player.money - historyCard.price
                 return true
             }
             .map(recalcalculateStage(_:))

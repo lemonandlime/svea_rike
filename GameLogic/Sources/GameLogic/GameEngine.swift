@@ -22,7 +22,8 @@ public enum GameEngine {
             era: .green,
             regent: .gustavVasa,
             turn: firstTurn,
-            eventCards: deck
+            eventCards: deck,
+            historyCards: HistoryCard.allCases.shuffled()
         )
 
         return game
