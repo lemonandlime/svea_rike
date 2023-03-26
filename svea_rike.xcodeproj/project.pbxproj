@@ -13,6 +13,7 @@
 		DF2E73CB256C5DE100EBE05D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E73CA256C5DE100EBE05D /* Assets.xcassets */; };
 		DF2E73CE256C5DE100EBE05D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E73CD256C5DE100EBE05D /* Preview Assets.xcassets */; };
 		DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34620D257C3B82005814AC /* PlayerTurnView.swift */; };
+		DF4EA06C29D0F010004587B9 /* HistoryCardPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4EA06B29D0F010004587B9 /* HistoryCardPickerView.swift */; };
 		DF56D20E29CBA4B500D95BB9 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = DF56D20D29CBA4B500D95BB9 /* Common */; };
 		DF56D21929CBA9FF00D95BB9 /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = DF56D21829CBA9FF00D95BB9 /* SwiftFormat */; };
 		DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6114F025ABA7F600730240 /* InventoryView.swift */; };
@@ -31,6 +32,7 @@
 		DF2E73CF256C5DE100EBE05D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF34620D257C3B82005814AC /* PlayerTurnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTurnView.swift; sourceTree = "<group>"; };
 		DF4B77B6256C70550087150F /* svea_rike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = svea_rike.entitlements; sourceTree = "<group>"; };
+		DF4EA06B29D0F010004587B9 /* HistoryCardPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardPickerView.swift; sourceTree = "<group>"; };
 		DF56D20C29CBA40A00D95BB9 /* Common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Common; sourceTree = "<group>"; };
 		DF6114F025ABA7F600730240 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		DFBAB07429CB9F63003C3F6E /* GameLogic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GameLogic; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				DF1A1AEC25AB51D7001EC84F /* RegentLineView.swift */,
+				DF4EA06B29D0F010004587B9 /* HistoryCardPickerView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				DF2E73C9256C5DDF00EBE05D /* ContentView.swift in Sources */,
 				DF1A1AED25AB51D7001EC84F /* RegentLineView.swift in Sources */,
 				DF2E73C7256C5DDF00EBE05D /* svea_rikeApp.swift in Sources */,
+				DF4EA06C29D0F010004587B9 /* HistoryCardPickerView.swift in Sources */,
 				DF6114F125ABA7F600730240 /* InventoryView.swift in Sources */,
 				DF34620E257C3B82005814AC /* PlayerTurnView.swift in Sources */,
 			);

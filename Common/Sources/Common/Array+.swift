@@ -1,10 +1,3 @@
-//
-//  Array+Extensions.swift
-//  svea_rike
-//
-//  Created by Karl Söderberg on 2021-01-10.
-//
-
 import Foundation
 
 public extension Array {
@@ -14,6 +7,11 @@ public extension Array {
         }
 
         return self[index]
+    }
+
+    var nilIfEmpty: Self? {
+        if self.isEmpty { return nil }
+        return self
     }
 
     mutating func popLast(_ number: Int = 1) -> [Element] {
@@ -26,5 +24,12 @@ public extension Array {
         } while elements.count < number && !isEmpty
 
         return elements
+    }
+}
+
+public extension Array where Element: Equatable {
+    func contains(_ element: Element?) -> Bool {
+        guard let element else { return false }
+        return self.contains { $0 == element }
     }
 }

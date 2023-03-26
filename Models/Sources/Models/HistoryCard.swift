@@ -8,7 +8,7 @@
 import Foundation
 import Resources
 
-public enum HistoryCard: String, CaseIterable, Hashable {
+public enum HistoryCard: String, Identifiable, CaseIterable, Hashable {
     case tyska_knektar
     case maria_elionora
     case lennart_torstensson
@@ -56,6 +56,8 @@ public enum HistoryCard: String, CaseIterable, Hashable {
     case carl_michael_bellman
 
     private typealias Images = Asset.Image.HistoryCard
+
+    public var id: String { self.rawValue }
 
     public var name: String {
         switch self {
