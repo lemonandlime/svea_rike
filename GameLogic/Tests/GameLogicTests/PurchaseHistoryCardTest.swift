@@ -13,6 +13,11 @@ final class PurchaseHistoryCardTest: XCTestCase {
     func testPurchaseHistoryCard() async throws {
         let sut = try await newGame()
         let playerTurn = sut.turn.currentPlayerTurn
+        playerTurn.eventCard = .blokadbrytare
+        playerTurn.specialization = .scienceAndCulture
+        playerTurn.incomeSource = .farming
+        playerTurn.collectedIncome = 0
+        playerTurn.paidTroopSupport = 0
         let playerMoney = playerTurn.player.money
         let cardToPurchase = sut.historyCards.first!
         XCTAssertTrue(sut.turn.currentPlayerTurn.player.historyCards.isEmpty)
@@ -23,6 +28,20 @@ final class PurchaseHistoryCardTest: XCTestCase {
         try await Task.sleep(for: .milliseconds(10))
         XCTAssertFalse(playerTurn.player.historyCards.isEmpty)
         XCTAssertEqual(playerTurn.player.money, playerMoney - cardToPurchase.price)
+    }
+
+    func testCantPurchaseHistoryCardWrongState() async throws {
+        let sut = try await newGame()
+        let playerTurn = sut.turn.currentPlayerTurn
+        playerTurn.eventCard = .blokadbrytare
+        playerTurn.specialization = .scienceAndCulture
+        playerTurn.incomeSource = .farming
+        let playerMoney = playerTurn.player.money
+        let cardToPurchase = sut.historyCards.first!
+        XCTAssertTrue(sut.turn.currentPlayerTurn.player.historyCards.isEmpty)
+        XCTAssertThrowsError(try sut.buy(historyCard: cardToPurchase)) { error in
+            XCTAssertEqual(error as? GameEngineError, GameEngineError.notInPurchaseState)
+        }
     }
 
     func testCantPurchaseHistoryCardToExpensive() async throws {
